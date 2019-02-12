@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Datapath #(
-    parameter PC_W = 9, // Program Counter
+    parameter PC_W = 32, // Program Counter
     parameter INS_W = 32, // Instruction Width
     parameter RF_ADDRESS = 5, // Register File Address
     parameter DATA_W = 32, // Data WriteData
@@ -32,6 +32,7 @@ module Datapath #(
     RegWrite , MemtoReg ,     // Register file writing enable   // Memory or ALU MUX
     ALUsrc , MemWrite ,       // Register file or Immediate MUX // Memroy Writing Enable
     MemRead ,                 // Memroy Reading Enable
+    Branch ,
     input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
@@ -46,10 +47,11 @@ logic [DATA_W-1:0] Reg1, Reg2;
 logic [DATA_W-1:0] ReadData;
 logic [DATA_W-1:0] SrcB, ALUResult;
 logic [DATA_W-1:0] ExtImm;
+logic [PC_W-1:0] PCBranch, PCNext;
 
 // next PC
-    adder #(9) pcadd (PC, 9'b100, PCPlus4);
-    flopr #(9) pcreg(clk, reset, PCPlus4, PC);
+    adder #(32) pcadd (PC, 32'b100, PCPlus4);
+    flopr #(32) pcreg(clk, reset, PCNext, PC);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -66,6 +68,8 @@ logic [DATA_W-1:0] ExtImm;
            
 //// sign extend
     imm_Gen Ext_Imm (Instr,ExtImm);
+    adder #(32) branchadd (PC, ExtImm, PCBranch);
+    mux2 #(32) branchmux(PCPlus4, PCBranch, Branch, PCNext);
 
 //// ALU
     mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);

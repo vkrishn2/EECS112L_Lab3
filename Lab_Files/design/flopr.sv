@@ -21,7 +21,7 @@
 
 
 module flopr#
-    (parameter WIDTH = 8)
+    (parameter WIDTH = 32)
     (input logic clk, reset,
      input logic [WIDTH-1:0] d,
      output logic [WIDTH-1:0] q);

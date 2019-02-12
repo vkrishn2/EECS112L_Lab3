@@ -7,17 +7,17 @@ module riscv #(
     );
 
 logic [6:0] opcode;
-logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite;
+logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch;
 
 logic [1:0] ALUop;
 logic [6:0] Funct7;
 logic [2:0] Funct3;
 logic [3:0] Operation;
 
-    Controller c(opcode, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, ALUop);
+    Controller c(opcode, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, ALUop, Branch);
     
     ALUController ac(ALUop, Funct7, Funct3, Operation);
 
-    Datapath dp(clk, reset, RegWrite , MemtoReg, ALUSrc , MemWrite, MemRead, Operation, opcode, Funct7, Funct3, WB_Data);
+    Datapath dp(clk, reset, RegWrite , MemtoReg, ALUSrc , MemWrite, MemRead, Branch, Operation, opcode, Funct7, Funct3, WB_Data);
         
 endmodule

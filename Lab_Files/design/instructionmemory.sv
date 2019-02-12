@@ -21,7 +21,7 @@
 
 
 module instructionmemory#(
-    parameter INS_ADDRESS = 9,
+    parameter INS_ADDRESS = 32,
     parameter INS_W = 32
      )(
     input logic [ INS_ADDRESS -1:0] ra , // Read address of the instruction memory , comes from PC
