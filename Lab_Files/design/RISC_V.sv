@@ -9,7 +9,7 @@ module riscv #(
 logic [6:0] opcode;
 logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch;
 
-logic [1:0] ALUop;
+logic [2:0] ALUop;
 logic [6:0] Funct7;
 logic [2:0] Funct3;
 logic [3:0] Operation;

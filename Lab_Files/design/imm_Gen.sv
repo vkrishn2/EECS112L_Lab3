@@ -30,8 +30,11 @@ always_comb
 
         7'b0000011 /*I-type load*/     : 
             Imm_out = {inst_code[31]? 20'b1:20'b0 , inst_code[31:20]};
-        7'b0010011 /*I-type addi*/     : 
-            Imm_out = {inst_code[31]? 20'b1:20'b0 , inst_code[31:20]};
+        7'b0010011 /*I-type addi*/     :
+            if(inst_code[14:12] == 3'b101 || inst_code[14:12] == 3'b001)
+              Imm_out = {27'b0 , inst_code[24:20]};
+            else
+              Imm_out = {inst_code[31]? 20'b1:20'b0 , inst_code[31:20]};
         7'b0100011 /*S-type*/    : 
             Imm_out = {inst_code[31]? 20'b1:20'b0 , inst_code[31:25], inst_code[11:7]};
         /*My Code*/
