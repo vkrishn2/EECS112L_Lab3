@@ -43,26 +43,28 @@ module Controller(
 //    localparam BR     = 7'b1100011;
 //    localparam RTypeI = 7'b0010011; //addi,ori,andi
     
-    logic [6:0] R_TYPE, LW, SW, RTypeI, BR;
+    logic [6:0] R_TYPE, LW, SW, RTypeI, BR, JAL, JALR;
     
     assign  R_TYPE = 7'b0110011;
     assign  LW     = 7'b0000011;
     assign  SW     = 7'b0100011;
     assign  RTypeI = 7'b0010011; //addi,ori,andi
   	assign  BR     = 7'b1100011;
+    assign  JAL    = 7'b1101111;
+    assign  JALR   = 7'b1100111;
 
 
 
 
-  assign ALUSrc   = (Opcode==LW || Opcode==SW || Opcode == RTypeI);
+  assign ALUSrc   = (Opcode==LW || Opcode==SW || Opcode == RTypeI || Opcode==JALR);
   assign MemtoReg = (Opcode==LW);
-  assign RegWrite = (Opcode==R_TYPE || Opcode==LW || Opcode == RTypeI);
+  assign RegWrite = (Opcode==R_TYPE || Opcode==LW || Opcode == RTypeI || Opcode==JALR);
   assign MemRead  = (Opcode==LW);
   assign MemWrite = (Opcode==SW);
   assign ALUOp[0] = (Opcode==SW ||Opcode==LW);
-  assign ALUOp[1] = (Opcode==RTypeI ||Opcode==LW);
+  assign ALUOp[1] = (Opcode==RTypeI ||Opcode==LW || Opcode==JALR);
   assign ALUOp[2] = (Opcode==BR);
-  assign Branch = (Opcode==BR);
+  assign Branch = (Opcode==BR || Opcode==JAL || Opcode==JALR);
   
 
 endmodule

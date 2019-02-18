@@ -10,7 +10,7 @@ cModel Technology
 d/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design
 vadder
 Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z1 !s110 1550375534
+Z1 !s110 1550450569
 !i10b 1
 !s100 UBbl1emca8B5[I^V^Gz3=0
 IbZj7GiTCGAzjYXJ=NMdUn0
@@ -26,7 +26,7 @@ Z4 OL;L;10.4c;61
 r1
 !s85 0
 31
-Z5 !s108 1550375532.000000
+Z5 !s108 1550450569.000000
 Z6 !s107 /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv|
 Z7 !s90 -64|-sv|-f|rtl.cfg|
 !i113 0
@@ -82,13 +82,13 @@ vController
 R0
 R1
 !i10b 1
-!s100 0V8i_e]NAIHMCP]ZSdSRd2
-I8m=Ro`4gjeWbb;mmjJAfd0
+!s100 6o:KoQjnkd`T3Km5QJ1_E2
+IfYaff[h8`<Q7oY0OaWHmf1
 R2
 !s105 Controller_sv_unit
 S1
 R3
-w1550366079
+w1550449688
 8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
 F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
 Z10 L0 22
@@ -129,13 +129,13 @@ vDatapath
 R0
 R1
 !i10b 1
-!s100 JazF8gHP:6]Xi32beHHaJ1
-I8mEHe^VRo]fSXjBYHgo2H1
+!s100 G7<E<b?FWfF`oGzG^gMnk1
+I:hY<Yo0>[SOUEJE`=U?lX1
 R2
 !s105 Datapath_sv_unit
 S1
 R3
-w1549932549
+w1550446029
 8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
 F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
 R10
@@ -276,7 +276,7 @@ R2
 !s105 RISC_V_sv_unit
 S1
 R3
-w1550354212
+w1550443872
 8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
 F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
 L0 3
@@ -307,14 +307,14 @@ R4
 r1
 !s85 0
 31
-!s108 1550375534.000000
+R5
 !s107 /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/verif/tb_top.sv|
 !s90 -64|-sv|-f|tb.cfg|-work|work|
 !i113 0
 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Ttb_top_opt
 R1
-VEZQogj]?R_WiD>UU7:iWZ2
+VL2Wm1z<QdC6zh8B6GlX;B1
 04 6 4 work tb_top fast 0
 o+acc -work work
 ntb_top_opt

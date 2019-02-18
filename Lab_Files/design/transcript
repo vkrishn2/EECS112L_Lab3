@@ -16,3 +16,4 @@
 # //
 # waveform.wlf opened as dataset "waveform"
 add wave -position end waveform:/tb_top/riscV/dp/alu_module/*
+add wave -position end waveform:/tb_top/riscV/dp/rf/*

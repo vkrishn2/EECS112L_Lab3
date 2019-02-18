@@ -14,7 +14,7 @@ logic [6:0] Funct7;
 logic [2:0] Funct3;
 logic [3:0] Operation;
 
-    Controller c(opcode, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, ALUop, Branch);
+    Controller c(opcode, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, ALUop, Branch );
     
     ALUController ac(ALUop, Funct7, Funct3, Operation);
 

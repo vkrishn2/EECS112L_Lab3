@@ -32,7 +32,7 @@ module Datapath #(
     RegWrite , MemtoReg ,     // Register file writing enable   // Memory or ALU MUX
     ALUsrc , MemWrite ,       // Register file or Immediate MUX // Memroy Writing Enable
     MemRead ,                 // Memroy Reading Enable
-    Branch ,
+    Branch ,        
     input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
@@ -42,16 +42,17 @@ module Datapath #(
 
 logic [PC_W-1:0] PC, PCPlus4;
 logic [INS_W-1:0] Instr;
-logic [DATA_W-1:0] Result;
+logic [DATA_W-1:0] Result, Result2;
 logic [DATA_W-1:0] Reg1, Reg2;
 logic [DATA_W-1:0] ReadData;
 logic [DATA_W-1:0] SrcB, ALUResult;
 logic [DATA_W-1:0] ExtImm;
-logic [PC_W-1:0] PCBranch, PCNext;
+logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 
 // next PC
     adder #(32) pcadd (PC, 32'b100, PCPlus4);
-    flopr #(32) pcreg(clk, reset, PCNext, PC);
+    flopr #(32) pcreg(clk, reset, PCNext2, PC);
+    mux2  #(32) jumpmux2(PCNext, ALUResult, (Branch & ~Instr[3]), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -62,14 +63,16 @@ logic [PC_W-1:0] PCBranch, PCNext;
       
 // //Register File
     RegFile rf(clk, reset, RegWrite, Instr[11:7], Instr[19:15], Instr[24:20],
-            Result, Reg1, Reg2);
+            Result2, Reg1, Reg2);
             
     mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
+
+    mux2 #(32) jumpmux(Result, PCPlus4, (Branch & ~Instr[3]), Result2);
            
 //// sign extend
     imm_Gen Ext_Imm (Instr,ExtImm);
     adder #(32) branchadd (PC, ExtImm, PCBranch);
-    mux2 #(32) branchmux(PCPlus4, PCBranch, Branch, PCNext);
+    mux2 #(32) branchmux(PCPlus4, PCBranch, ((Branch & ALUResult[0]) || (Branch & Instr[2])), PCNext);
 
 //// ALU
     mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);
