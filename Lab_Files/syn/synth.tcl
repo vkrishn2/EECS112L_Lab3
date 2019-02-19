@@ -7,7 +7,7 @@
 set PROJECT_NAME                "112L-RISCV"
 set TOP                         "riscv"
 set FILES                       "files_riscv"
-set clock_period                0.9
+set clock_period                4
 
 #==============================================================================
 #                  D I R E C T O R Y   S T R U C T U R E
@@ -179,7 +179,7 @@ redirect -file ${REPORTS}/${TOP}.power_flat.rpt { \
 
 
 
-#exit
+exit
 
 
 

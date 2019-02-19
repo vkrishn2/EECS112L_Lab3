@@ -32,7 +32,7 @@ module Datapath #(
     RegWrite , MemtoReg ,     // Register file writing enable   // Memory or ALU MUX
     ALUsrc , MemWrite ,       // Register file or Immediate MUX // Memroy Writing Enable
     MemRead ,                 // Memroy Reading Enable
-    Branch ,        
+    Branch ,  AUIPC,
     input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
@@ -45,7 +45,7 @@ logic [INS_W-1:0] Instr;
 logic [DATA_W-1:0] Result, Result2;
 logic [DATA_W-1:0] Reg1, Reg2;
 logic [DATA_W-1:0] ReadData;
-logic [DATA_W-1:0] SrcB, ALUResult;
+logic [DATA_W-1:0] SrcB, SrcA, ALUResult;
 logic [DATA_W-1:0] ExtImm;
 logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 
@@ -75,8 +75,9 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     mux2 #(32) branchmux(PCPlus4, PCBranch, ((Branch & ALUResult[0]) || (Branch & Instr[2])), PCNext);
 
 //// ALU
+    mux2 #(32) srcamux(Reg1, PC, AUIPC, SrcA);
     mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);
-    alu alu_module(Reg1, SrcB, ALU_CC, ALUResult);
+    alu alu_module(SrcA, SrcB, ALU_CC, ALUResult);
     
     assign WB_Data = Result;
     

@@ -11,7 +11,7 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 
 Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
 
-Information: There are 61 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 70 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 Loaded alib file './alib-52/saed32lvt_tt1p05vn40c.db.alib'
@@ -19,12 +19,17 @@ Information: Ungrouping hierarchy c before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy ac before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/pcadd before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/pcreg before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/jumpmux2 before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/instr_mem before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/resmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/jumpmux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/Ext_Imm before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/branchadd before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/branchmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/srcamux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/srcbmux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/alu_module before Pass 1 (OPT-776)
-Information: Ungrouping 9 of 13 hierarchies before Pass 1 (OPT-775)
+Information: Ungrouping 14 of 18 hierarchies before Pass 1 (OPT-775)
 Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
@@ -34,15 +39,7 @@ Information: State dependent leakage is now switched from on to off.
   Processing 'RegFile'
  Implement Synthetic for 'RegFile'.
   Processing 'Datapath'
-Information: The register 'pcreg/q_reg[8]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[7]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[6]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[5]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[4]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[3]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[2]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[1]' will be removed. (OPT-1207)
-Information: The register 'pcreg/q_reg[0]' will be removed. (OPT-1207)
+Information: Added key list 'DesignWare' to design 'Datapath'. (DDB-72)
  Implement Synthetic for 'Datapath'.
   Processing 'riscv'
 
@@ -17463,6 +17460,8 @@ Information: The register 'dp/rf/register_file_reg[0][28]' is a constant and wil
 Information: The register 'dp/rf/register_file_reg[0][29]' is a constant and will be removed. (OPT-1206)
 Information: The register 'dp/rf/register_file_reg[0][30]' is a constant and will be removed. (OPT-1206)
 Information: The register 'dp/rf/register_file_reg[0][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dp/pcreg/q_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dp/pcreg/q_reg[0]' is a constant and will be removed. (OPT-1206)
 Information: Removing unused design 'datamemory'. (OPT-1055)
 
 Threshold voltage group cell usage:
@@ -17472,18 +17471,18 @@ Threshold voltage group cell usage:
   -------------------------------
 Information: Updating design information... (UID-85)
 Information: Ungrouping hierarchy dp 'Datapath' #insts = 0. (OPT-777)
-  Mapping Optimization (Phase 1)
 Information: Added key list 'DesignWare' to design 'riscv'. (DDB-72)
+  Mapping Optimization (Phase 1)
 Information: Removing unused design 'RegFile'. (OPT-1055)
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
   Re-synthesis Optimization (Phase 1)
   Re-synthesis Optimization (Phase 2)
   Global Optimization (Phase 1)
@@ -17524,70 +17523,70 @@ Information: Removing unused design 'RegFile'. (OPT-1055)
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
+    0:01:55       7.0      0.00       0.0       0.0                              0.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_lvt 0.00%
 
   Beginning Delay Optimization
   ----------------------------
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
-    0:01:59       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
+    0:01:56       7.0      0.00       0.0       0.0                              0.0000
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db'
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db'
 

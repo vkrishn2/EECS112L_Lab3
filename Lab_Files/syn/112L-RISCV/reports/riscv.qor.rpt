@@ -4,7 +4,7 @@ Information: Updating design information... (UID-85)
 Report : qor
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Mon Feb  4 15:29:46 2019
+Date   : Tue Feb 19 14:24:53 2019
 ****************************************
 
 
@@ -51,12 +51,12 @@ Date   : Mon Feb  4 15:29:46 2019
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   10.06
-  Logic Optimization:                  0.53
-  Mapping Optimization:                0.42
+  Resource Sharing:                   10.17
+  Logic Optimization:                  0.50
+  Mapping Optimization:                0.40
   -----------------------------------------
-  Overall Compile Time:              118.97
-  Overall Compile Wall Clock Time:   121.36
+  Overall Compile Time:              115.64
+  Overall Compile Wall Clock Time:   117.79
 
   --------------------------------------------------------------------
 

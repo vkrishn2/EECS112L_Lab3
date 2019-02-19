@@ -41,7 +41,7 @@ always_comb
         7'b0110111 /*Load Upper Immediate*/ :
             Imm_out = {inst_code[31:12], 12'b0 };
         7'b0010111  : /*AUIPC*/
-            Imm_out = {inst_code[31]? 20'b1:20'b0 , inst_code[31:12]};
+            Imm_out = {inst_code[31:12], 12'b0 };
         7'b1101111  : /*JAL*/
             Imm_out = {inst_code[31]? 11'b1:11'b0 , inst_code[31], inst_code[19:12], inst_code[20], inst_code[30:21], 1'b0};
         7'b1100111  : /*JALR*/

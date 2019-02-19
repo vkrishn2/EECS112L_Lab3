@@ -4,7 +4,7 @@ Warning: duplicate option '-nosplit' overrides previous value. (CMD-018)
 Report : area
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Mon Feb  4 15:29:46 2019
+Date   : Tue Feb 19 14:24:53 2019
 ****************************************
 
 Library(s) Used:
@@ -53,11 +53,15 @@ Estimated area of ungrouped synthetic parts
                                       Estimated  Perc. of
   Module              Implem.  Count       Area cell area
   ------------------- -------  ----- ---------- ---------
-  DP_OP_24J2_122_9747     str      1     0.0000      0.0%
+  DP_OP_45J2_122_6278     str      1     0.0000      0.0%
+  DW01_add            apparch      1     0.0000      0.0%
+  DW_cmp              apparch      2    54.5901      0.0%
+  DW_leftsh              astr      1   536.7517      0.0%
+  DW_rightsh             astr      1   430.5201      0.0%
   ------------------- -------  ----- ---------- ---------
   DP_OP Subtotal:                  1     0.0000     -nan%
-  Total:                           1     0.0000      0.0%
+  Total:                           6  1021.8619      0.0%
 
-Total synthetic cell area:              0.0000  0.0%  (estimated)
+Total synthetic cell area:              1021.8619  0.0%  (estimated)
 
 1

@@ -74,6 +74,9 @@ module alu#(
             4'b1101:
                     //branch if greater than or equal unsigned
                     ALUResult = $unsigned(SrcA) >= $unsigned(SrcB);
+            4'b1110:
+                    //LUI
+                    ALUResult = $signed(SrcB);
             default:
                     ALUResult = 'b0;
             endcase

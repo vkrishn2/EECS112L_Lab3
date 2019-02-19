@@ -14,19 +14,22 @@ Presto compilation completed successfully.
 Information: Building the design 'Datapath'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'adder' instantiated from design 'Datapath' with
-	the parameters "9". (HDL-193)
+	the parameters "32". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'flopr' instantiated from design 'Datapath' with
-	the parameters "9". (HDL-193)
+	the parameters "32". (HDL-193)
 
 Inferred memory devices in process
-	in routine flopr_WIDTH9 line 29 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/flopr.sv'.
+	in routine flopr_WIDTH32 line 29 in file
+		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|        q_reg        | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        q_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
 ===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux2' instantiated from design 'Datapath' with
+	the parameters "32". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'instructionmemory'. (HDL-193)
 Statistics for MUX_OPs
@@ -40,7 +43,7 @@ Information: Building the design 'RegFile'. (HDL-193)
 
 Inferred memory devices in process
 	in routine RegFile line 36 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/RegFile.sv'.
+		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -81,17 +84,14 @@ Statistics for MUX_OPs
 ===========================================================
 | block name/line  | Inputs | Outputs | # sel inputs | MB |
 ===========================================================
-|    RegFile/46    |   32   |   32    |      5       | N  |
-|    RegFile/47    |   32   |   32    |      5       | N  |
+|    RegFile/51    |   32   |   32    |      5       | N  |
+|    RegFile/52    |   32   |   32    |      5       | N  |
 ===========================================================
-Presto compilation completed successfully.
-Information: Building the design 'mux2' instantiated from design 'Datapath' with
-	the parameters "32". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'imm_Gen'. (HDL-193)
 
 Statistics for case statements in always block at line 28 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/imm_Gen.sv'
+	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -99,10 +99,11 @@ Statistics for case statements in always block at line 28 in file
 ===============================================
 Presto compilation completed successfully.
 Information: Building the design 'alu'. (HDL-193)
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/alu.sv:47: signed to unsigned assignment occurs. (VER-318)
+Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:47: signed to unsigned assignment occurs. (VER-318)
+Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:79: signed to unsigned assignment occurs. (VER-318)
 
 Statistics for case statements in always block at line 34 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/alu.sv'
+	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -113,7 +114,7 @@ Information: Building the design 'datamemory'. (HDL-193)
 
 Inferred memory devices in process
 	in routine datamemory line 17 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/datamemory.sv'.
+		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
 ===========================================================================
 |    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===========================================================================
@@ -122,7 +123,7 @@ Inferred memory devices in process
 
 Inferred memory devices in process
 	in routine datamemory line 23 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/datamemory.sv'.
+		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -645,6 +646,6 @@ Statistics for MUX_OPs
 ===========================================================
 |  datamemory/20   |  512   |   32    |      9       | N  |
 ===========================================================
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design/datamemory.sv:17: Netlist for always_comb block contains a latch. (ELAB-974)
+Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv:17: Netlist for always_comb block contains a latch. (ELAB-974)
 Presto compilation completed successfully.
 1
