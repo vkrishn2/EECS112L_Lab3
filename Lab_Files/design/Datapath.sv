@@ -71,10 +71,10 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     mux2 #(32) jumpmux(Result, PCPlus4, (Branch & ~Instr[3]), Result2);
 
     mux2 #(32) ld4mux(Result2, LoadOutput, (Instr[6:0] == 7'b0000011), RfInput);
-	mux2 #(32) ld1mux(NotWordOutput, Result2, Instr[13], LoadOutput);
-	mux2 #(32) ld2mux(ByteOutput,HalfOutput, Instr[12], NotWordOutput);
-    mux2 #(32) ld3_1mux({Result2[15] ? 16'b1:16'b0, Result2[15:0]}, {16'b0, Result2[15:0]}, (Instr[14:12] == 3'b101), HalfOutput);
-    mux2 #(32) ld3_2mux({Result2[7] ? 24'b1:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (Instr[14:12] == 3'b100), ByteOutput);
+  	mux2 #(32) ld1mux(NotWordOutput, Result2, Instr[13], LoadOutput);
+  	mux2 #(32) ld2mux(ByteOutput,HalfOutput, Instr[12], NotWordOutput);
+    mux2 #(32) ld3_1mux({Result2[15] ? 16'b1111111111111111:16'b0, Result2[15:0]}, {16'b0, Result2[15:0]}, (Instr[14:12] == 3'b101), HalfOutput);
+    mux2 #(32) ld3_2mux({Result2[7] ?  24'b111111111111111111111111:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (Instr[14:12] == 3'b100), ByteOutput);
            
 //// sign extend
     imm_Gen Ext_Imm (Instr,ExtImm);
@@ -89,11 +89,11 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     assign WB_Data = Result;
     
 ////// Data memory 
-	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], DataMemInput, ReadData);
+	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
 
-	mux2 #(32) st3mux(Reg2, StoreOutput,(Instr[6:0]== 7'b0100011), DataMemInput);
+	  //mux2 #(32) st3mux(Reg2, StoreOutput,(Instr[6:0]== 7'b0100011), DataMemInput);
     mux2 #(32) st1mux(StoreNotWordOutput, Reg2 , Instr[13], StoreOutput);
-    mux2 #(32) st2mux({24'b0, Result2[7:0]},{16'b0, Result2[15:0]}, Instr[12], StoreNotWordOutput);
+    mux2 #(32) st2mux({Reg2[7] ? 24'b111111111111111111111111:24'b0, Reg2[7:0]}, {Reg2[15] ? 16'b1111111111111111:16'b0, Reg2[15:0]}, Instr[12], StoreNotWordOutput);
 
      
 endmodule
