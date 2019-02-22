@@ -52,8 +52,8 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 
 // next PC
     adder #(32) pcadd (PC, 32'b100, PCPlus4);
-    flopr #(32) pcreg(clk, reset, PCNext, PC);
-    //mux2  #(32) jumpmux2(PCNext, ALUResult, (ALUResult[0] & Branch & ~Instr[3]), PCNext2);
+    flopr #(32) pcreg(clk, reset, PCNext2, PC);
+    mux2  #(32) jumpmux2(PCNext, {ALUResult[31:1], 1'b0}, (Branch & Instr[3:2] == 2'b01), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);

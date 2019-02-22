@@ -10,7 +10,7 @@ cModel Technology
 d/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design
 vadder
 Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z1 !s110 1550803955
+Z1 !s110 1550806176
 !i10b 1
 !s100 UBbl1emca8B5[I^V^Gz3=0
 IFdCIPT7mnePEPn9[?3b^;0
@@ -26,7 +26,7 @@ Z5 OL;L;10.4c;61
 r1
 !s85 0
 31
-Z6 !s108 1550803955.000000
+Z6 !s108 1550806176.000000
 Z7 !s107 /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/adder.sv|
 Z8 !s90 -64|-sv|-f|rtl.cfg|
 !i113 0
@@ -129,13 +129,13 @@ vDatapath
 R0
 R1
 !i10b 1
-!s100 2Z3BRF;Ae<lG5XAHf3Feh2
-IG8LXFZZ_O8L1maAM_IZ090
+!s100 f5fMfAHNhZ^o?DKNoPV5X0
+I=RPJDV_?N>=J9`;[iz31?2
 R2
 !s105 Datapath_sv_unit
 S1
 R3
-w1550803515
+w1550806164
 8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv
 F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv
 R11
@@ -313,8 +313,8 @@ R6
 !i113 0
 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Ttb_top_opt
-R1
-VA2j2=ak:Hc0n:z^NFGDCh2
+!s110 1550806177
+V8zW`=c7A4[Ra85<ajeCTR0
 04 6 4 work tb_top fast 0
 o+acc -work work
 ntb_top_opt
