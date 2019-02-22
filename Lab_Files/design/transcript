@@ -15,5 +15,6 @@
 # //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
 # //
 # waveform.wlf opened as dataset "waveform"
-add wave -position end waveform:/tb_top/riscV/dp/rf/*
-add wave -position end waveform:/tb_top/riscV/dp/data_mem/*
+add wave -position insertpoint waveform:/tb_top/*
+add wave -position insertpoint waveform:/tb_top/riscV/dp/Ext_Imm/*
+add wave -position insertpoint waveform:/tb_top/riscV/dp/pcreg/*
