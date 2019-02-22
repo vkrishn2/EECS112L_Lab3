@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP4 for amd64 -- Mar 04, 2015
-#@ # Date:   Tue Feb 19 14:22:39 2019
+#@ # Date:   Thu Feb 21 18:19:20 2019
 #@ # Run by: sbkam@zuma.eecs.uci.edu
 #@ 
 
@@ -3904,35 +3904,3 @@ source -echo -verbose /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/s
 #@ 
 #@ 
 #@ redirect -tee -file ${REPORTS}/${TOP}.compile.rpt     { compile_ultra };
-#@ 
-#@ 
-#@ #==============================================================================
-#@ #                 W R I T E   O U T   D E S I G N
-#@ #==============================================================================
-#@ #
-#@ 
-#@ write   -format verilog -hierarchy -output  ${NETLIST}/${TOP}.vg
-#@ 
-#@ #==============================================================================
-#@ #                 G E N E R A T E    F I N A L    R E P O R T S
-#@ #==============================================================================
-#@ #
-#@ #
-#@ 
-#@ redirect -tee -file ${REPORTS}/${TOP}.qor.rpt           { report_qor }
-#@ redirect -file ${REPORTS}/${TOP}.units.rpt { report_units  }
-#@ redirect -file ${REPORTS}/${TOP}.design.rpt { report_design -nosplit }
-#@ 
-#@ redirect -file ${REPORTS}/${TOP}.area.rpt { report_area -nosplit -designware -hierarchy -physical -nosplit }
-#@ 
-#@ redirect -file ${REPORTS}/${TOP}.power_hier.rpt {         report_power -analysis_effort medium -verbose -nosplit -hierarchy }
-#@ 
-#@ redirect -file ${REPORTS}/${TOP}.power_flat.rpt {         report_power -net -cell -analysis_effort medium -verbose -nosplit -flat }
-#@ 
-#@ 
-#@ # clean up
-#@ #exec rm -rf *.syn *.mr *.pvl
-#@ 
-#@ 
-#@ 
-#@ exit

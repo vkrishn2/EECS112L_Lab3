@@ -10,311 +10,311 @@ cModel Technology
 d/users/ugrad/2017/fall/sbkam/EECS_112L/Labs/Lab2/Lab_Files/design
 vadder
 Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z1 !s110 1550806176
+Z1 !s110 1550821780
 !i10b 1
 !s100 UBbl1emca8B5[I^V^Gz3=0
-IFdCIPT7mnePEPn9[?3b^;0
+IbZj7GiTCGAzjYXJ=NMdUn0
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 !s105 adder_sv_unit
 S1
-Z3 d/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design
-Z4 w1550797732
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/adder.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/adder.sv
+Z3 d/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design
+w1549926177
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv
 L0 3
-Z5 OL;L;10.4c;61
+Z4 OL;L;10.4c;61
 r1
 !s85 0
 31
-Z6 !s108 1550806176.000000
-Z7 !s107 /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/adder.sv|
-Z8 !s90 -64|-sv|-f|rtl.cfg|
+Z5 !s108 1550821780.000000
+Z6 !s107 /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv|
+Z7 !s90 -64|-sv|-f|rtl.cfg|
 !i113 0
-Z9 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 valu
 R0
 R1
 !i10b 1
-!s100 lmTmj4dGZRIRLH]0Go<3a2
-I@>`0[6F6ALaeK<XX@@4V_3
+!s100 04Q2l_P;0_o@XK_c9o8T00
+I4VSkAI6Cc?==8LBTcImEl3
 R2
 !s105 alu_sv_unit
 S1
 R3
+w1550820212
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv
+Z9 L0 23
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv
-Z10 L0 23
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vALUController
 R0
 R1
 !i10b 1
-!s100 G1[7h7Hl7zRDMRc@PbHb<1
-I]UC[nE@fVhK2hd@kLl3542
+!s100 53X^eo4hVdEE;P<X]Go1C0
+I_hC]cDIWJ1cZMRmbE]HO^0
 R2
 !s105 ALUController_sv_unit
 S1
 R3
+w1550818571
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/ALUController.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/ALUController.sv
+R9
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/ALUController.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/ALUController.sv
-R10
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 n@a@l@u@controller
 vController
 R0
 R1
 !i10b 1
 !s100 KH9YPNijBaf0PB8g[?[QR1
-IHXlh7RaYD[W8>MEGckifP1
+IiGMaZKCc28LCGok_TIY@<2
 R2
 !s105 Controller_sv_unit
 S1
 R3
+w1550605850
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
+Z10 L0 22
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Controller.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Controller.sv
-Z11 L0 22
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 n@controller
 vdatamemory
 R0
 R1
 !i10b 1
 !s100 jnZAR?6OKKaNBcUbK:ocM3
-Ic;IeiPC<VYHjb?0XZ]PId1
+I:h5Hcd:Xj;^<zT[MAQ2FJ2
 R2
 !s105 datamemory_sv_unit
 S1
 R3
-R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/datamemory.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/datamemory.sv
+Z11 w1549678441
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv
 L0 3
-R5
+R4
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vDatapath
 R0
 R1
 !i10b 1
 !s100 f5fMfAHNhZ^o?DKNoPV5X0
-I=RPJDV_?N>=J9`;[iz31?2
+Io]EKBPgQ:22^CRKLb5?fF1
 R2
 !s105 Datapath_sv_unit
 S1
 R3
-w1550806164
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv
-R11
-R5
+Z12 w1550806859
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
+R10
+R4
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 n@datapath
 vflopr
 R0
 R1
 !i10b 1
 !s100 fTSX5MaHRURiG<?j]^D`@2
-IFo85jbi8;_T>RXnObPHjn1
+I[IUO;iYTYAmM0jmE3d0bD2
 R2
 !s105 flopr_sv_unit
 S1
 R3
+w1549926241
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv
+R9
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/flopr.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/flopr.sv
-R10
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vimm_Gen
 R0
 R1
 !i10b 1
 !s100 =BgCHVj?Iz6YmX2=W?UDd0
-I1:50[oQd=oWm>L17A=IaP0
+I1bG2cV6]L;NbEiGASCR[40
 R2
 !s105 imm_Gen_sv_unit
 S1
 R3
-w1550803946
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/imm_Gen.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/imm_Gen.sv
-R10
-R5
+R12
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv
+R9
+R4
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 nimm_@gen
 vinstructionmemory
 R0
 R1
 !i10b 1
 !s100 2_3>>D_da`jb>CfQQ0Q3E3
-I[Y0Z^c]KKozgLEeHCHnoh0
+I;WEZT;>X=;AX`jg@TdmGd3
 R2
 !s105 instructionmemory_sv_unit
 S1
 R3
+w1550614758
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/instructionmemory.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/instructionmemory.sv
+R9
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/instructionmemory.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/instructionmemory.sv
-R10
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vmux2
 R0
 R1
 !i10b 1
 !s100 @X6>V^M3YMfab:XdY67SE1
-Id52`0TcbUlR8<czRP@eLd0
+IhziDaCd4AOU;J;9NmBYQb2
 R2
 !s105 mux2_sv_unit
 S1
 R3
+R11
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux2.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux2.sv
+R9
 R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/mux2.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/mux2.sv
-R10
-R5
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vRegFile
 R0
 R1
 !i10b 1
 !s100 ?b9nKmdBH78J@Ab4U]K[E1
-IU0EnHM@E^`EF<hF>[=]4e2
+IFT8;ickXl2@FcGSdU<0P]1
 R2
 !s105 RegFile_sv_unit
 S1
 R3
-R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RegFile.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RegFile.sv
+w1550608838
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv
 L0 3
-R5
+R4
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 n@reg@file
 vriscv
 R0
-R1
+Z13 !s110 1550821781
 !i10b 1
 !s100 M:1h>bkaj><:W=jR^Ao>Q3
-IW2]EADK0>OJLCeal5Q9AB2
+I8adl[nLB0m^zNj49EJVH_3
 R2
 !s105 RISC_V_sv_unit
 S1
 R3
-R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RISC_V.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RISC_V.sv
+w1550605910
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
 L0 3
-R5
+R4
 r1
 !s85 0
 31
+R5
 R6
 R7
-R8
 !i113 0
-R9
+R8
 vtb_top
 R0
-R1
+R13
 !i10b 1
 !s100 S5HQHLz0Qd>^k_BFBzRKU0
-IIRT3DBPRGlFDiSV^BDLE90
+InbZ03:XbU;OWaQ=knaBF<3
 R2
 !s105 tb_top_sv_unit
 S1
 R3
-R4
-8/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/verif/tb_top.sv
-F/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/verif/tb_top.sv
+w1549678429
+8/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/verif/tb_top.sv
+F/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/verif/tb_top.sv
 L0 3
-R5
+R4
 r1
 !s85 0
 31
-R6
-!s107 /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/verif/tb_top.sv|
+!s108 1550821781.000000
+!s107 /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/verif/tb_top.sv|
 !s90 -64|-sv|-f|tb.cfg|-work|work|
 !i113 0
 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Ttb_top_opt
-!s110 1550806177
-V8zW`=c7A4[Ra85<ajeCTR0
+R13
+V59@;93N9J@TiAP:48HKD^0
 04 6 4 work tb_top fast 0
 o+acc -work work
 ntb_top_opt

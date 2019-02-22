@@ -1,12 +1,13 @@
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/gtech.db'
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/standard.sldb'
   Loading link library 'saed32lvt_tt1p05vn40c'
-  Loading link library 'saed32sram_tt1p05vn40c'
   Loading link library 'gtech'
+Warning: Can't read link_library file 'saed32sram_tt1p05vn40c'. (UID-3)
 Running PRESTO HDLC
 Presto compilation completed successfully.
 Elaborated 1 design.
 Current design is now 'riscv'.
+Warning: Can't read link_library file 'saed32sram_tt1p05vn40c'. (UID-3)
 Information: Building the design 'Controller'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'ALUController'. (HDL-193)

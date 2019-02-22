@@ -35,7 +35,8 @@ module ALUController(
 			                ((ALUOp==3'b010) && (Funct3==3'b110 ||Funct3==3'b100)) ||
                       ((ALUOp==3'b000 || ALUOp==3'b010) && (Funct7==7'b0000000 || Funct7==7'b0100000) && (Funct3==3'b101)) || //SRL and SRA
                       ((ALUOp==3'b100) && (Funct3==3'b001 || Funct3==3'b101 || Funct3==3'b111));   //BR
- assign Operation[1]= (((ALUOp==3'b000) || (ALUOp==3'b010)) && ((Funct7==7'b0000000) ||(Funct7==7'b0100000)) && ((Funct3==3'b000) || (Funct3==3'b100))) ||
+ assign Operation[1]= //(((ALUOp==3'b000) || (ALUOp==3'b010)) && ((Funct7==7'b0000000) ||(Funct7==7'b0100000)) && ((Funct3==3'b000) || (Funct3==3'b100))) ||
+                      (((ALUOp==3'b000) || (ALUOp==3'b010)) && ((Funct3==3'b000) || (Funct3==3'b100))) ||
                       (ALUOp==3'b001) ||
                       (ALUOp==3'b011) ||
                       ((ALUOp==3'b000 || ALUOp==3'b010) && (Funct7==7'b0100000) && (Funct3==3'b101)) || //SRA
