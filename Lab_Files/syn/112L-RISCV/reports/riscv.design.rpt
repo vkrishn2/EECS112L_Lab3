@@ -3,14 +3,15 @@
 Report : design
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Mon Feb  4 15:29:46 2019
+Date   : Sun Feb 24 11:09:28 2019
 ****************************************
 
 Design allows ideal nets on clock nets.
 
 Library(s) Used:
 
-    No libraries used.
+    saed32lvt_tt1p05vn40c (File: /users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db)
+    gtech (File: /ecelib/linware/synopsys15/dc/libraries/syn/gtech.db)
 
 Local Link Library:
 
@@ -36,7 +37,7 @@ Operating Conditions:
 
 Wire Loading Model:
 
-    Selected automatically from the total cell area.
+    Selected from the default (area not fully known).
 
 Name           :   ForQA
 Location       :   saed32lvt_tt1p05vn40c
@@ -89,9 +90,11 @@ Disabled Timing Arcs:
 
 Required Licenses:
 
-    DesignWare
+    None Required
 
 Design Parameters:
 
     None specified.
+
+Information: This design contains unmapped logic. (RPT-7)
 1

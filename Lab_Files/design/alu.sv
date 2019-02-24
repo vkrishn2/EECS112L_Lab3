@@ -54,7 +54,7 @@ module alu#(
                     ALUResult = SrcA >> $signed(SrcB);
             4'b0111:
                     //Shift Right with sign
-                    ALUResult = SrcA >>>$signed(SrcB);
+                    ALUResult = $signed(SrcA) >>> $signed(SrcB);
             /*Branch equality check*/
             4'b1000:
                     //branch if equal
@@ -74,6 +74,9 @@ module alu#(
             4'b1101:
                     //branch if greater than or equal unsigned
                     ALUResult = $unsigned(SrcA) >= $unsigned(SrcB);
+            4'b1110:
+                    //LUI
+                    ALUResult = $signed(SrcB);
             default:
                     ALUResult = 'b0;
             endcase

@@ -32,7 +32,7 @@ module Datapath #(
     RegWrite , MemtoReg ,     // Register file writing enable   // Memory or ALU MUX
     ALUsrc , MemWrite ,       // Register file or Immediate MUX // Memroy Writing Enable
     MemRead ,                 // Memroy Reading Enable
-    Branch ,        
+    Branch ,  AUIPC,
     input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
@@ -44,15 +44,16 @@ logic [PC_W-1:0] PC, PCPlus4;
 logic [INS_W-1:0] Instr;
 logic [DATA_W-1:0] Result, Result2;
 logic [DATA_W-1:0] Reg1, Reg2;
+logic [DATA_W-1:0] ByteOutput, HalfOutput, NotWordOutput, LoadOutput, StoreNotWordOutput, StoreOutput, RfInput, DataMemInput;
 logic [DATA_W-1:0] ReadData;
-logic [DATA_W-1:0] SrcB, ALUResult;
+logic [DATA_W-1:0] SrcB, SrcA, ALUResult;
 logic [DATA_W-1:0] ExtImm;
 logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 
 // next PC
     adder #(32) pcadd (PC, 32'b100, PCPlus4);
     flopr #(32) pcreg(clk, reset, PCNext2, PC);
-    mux2  #(32) jumpmux2(PCNext, ALUResult, (Branch & ~Instr[3]), PCNext2);
+    mux2  #(32) jumpmux2(PCNext, {ALUResult[31:1], 1'b0}, (Branch & Instr[3:2] == 2'b01), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -62,12 +63,19 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     assign Funct3 = Instr[14:12];
       
 // //Register File
-    RegFile rf(clk, reset, RegWrite, Instr[11:7], Instr[19:15], Instr[24:20],
-            Result2, Reg1, Reg2);
+    RegFile rf(clk, reset, RegWrite & (Instr[11] | Instr[10] | Instr[9] | Instr[8] | Instr[7]), Instr[11:7], Instr[19:15], Instr[24:20],
+            RfInput, Reg1, Reg2);
             
     mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
 
-    mux2 #(32) jumpmux(Result, PCPlus4, (Branch & ~Instr[3]), Result2);
+    //-----------------------------------ALUResult[0]---
+    mux2 #(32) jumpmux(Result, PCPlus4, ( Branch & Instr[2]), Result2);
+
+    mux2 #(32) ld4mux(Result2, LoadOutput, (Instr[6:0] == 7'b0000011), RfInput);
+  	mux2 #(32) ld1mux(NotWordOutput, Result2, Instr[13], LoadOutput);
+  	mux2 #(32) ld2mux(ByteOutput,HalfOutput, Instr[12], NotWordOutput);
+    mux2 #(32) ld3_1mux({Result2[15] ? 16'b1111111111111111:16'b0, Result2[15:0]}, {16'b0, Result2[15:0]}, (Instr[14:12] == 3'b101), HalfOutput);
+    mux2 #(32) ld3_2mux({Result2[7] ?  24'b111111111111111111111111:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (Instr[14:12] == 3'b100), ByteOutput);
            
 //// sign extend
     imm_Gen Ext_Imm (Instr,ExtImm);
@@ -75,12 +83,18 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     mux2 #(32) branchmux(PCPlus4, PCBranch, ((Branch & ALUResult[0]) || (Branch & Instr[2])), PCNext);
 
 //// ALU
+    mux2 #(32) srcamux(Reg1, PC, AUIPC, SrcA);
     mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);
-    alu alu_module(Reg1, SrcB, ALU_CC, ALUResult);
+    alu alu_module(SrcA, SrcB, ALU_CC, ALUResult);
     
     assign WB_Data = Result;
     
 ////// Data memory 
-	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], Reg2, ReadData);
+	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
+
+	  //mux2 #(32) st3mux(Reg2, StoreOutput,(Instr[6:0]== 7'b0100011), DataMemInput);
+    mux2 #(32) st1mux(StoreNotWordOutput, Reg2 , Instr[13], StoreOutput);
+    mux2 #(32) st2mux({Reg2[7] ? 24'b111111111111111111111111:24'b0, Reg2[7:0]}, {Reg2[15] ? 16'b1111111111111111:16'b0, Reg2[15:0]}, Instr[12], StoreNotWordOutput);
+
      
 endmodule

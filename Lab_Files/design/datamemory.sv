@@ -12,8 +12,9 @@ module datamemory#(
     output logic [ DATA_W -1:0] rd // Read Data
     );
     
+    //ifdef _SIM_
     logic [DATA_W-1:0] mem [(2**DM_ADDRESS)-1:0];
-    
+
     always_comb 
     begin
        if(MemRead)
@@ -24,6 +25,21 @@ module datamemory#(
        if (MemWrite)
             mem[a] = wd;
     end
-    
+   
+    /*else
+      logic we;
+      assign we = MemWrite;
+
+      SRAM1RW512x32 RAM (
+        .A       ( a[8:0] ),
+        .CE      ( 1'b1   ),
+        .WEB     ( ~we    ),
+        .OEB     ( we     ),
+        .CSB     ( 1'b0   ),
+        .I       ( wd     ),
+        .O       ( rd     )
+        );
+     endif*/
+
 endmodule
 

@@ -7,7 +7,7 @@
 set PROJECT_NAME                "112L-RISCV"
 set TOP                         "riscv"
 set FILES                       "files_riscv"
-set clock_period                0.9
+set clock_period                10
 
 #==============================================================================
 #                  D I R E C T O R Y   S T R U C T U R E
@@ -133,7 +133,7 @@ create_clock -name $CLK_NAME    -period $CORE_CLK_PERIOD  -waveform  "0 [expr $C
 
 set_clock_transition 0 $CLK_NAME
 
-
+set_dont_touch dp/instr_mem
 
 
 puts "Linking"
@@ -179,7 +179,7 @@ redirect -file ${REPORTS}/${TOP}.power_flat.rpt { \
 
 
 
-#exit
+exit
 
 
 
