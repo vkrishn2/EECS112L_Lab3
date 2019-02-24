@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Information: Performing power optimization. (PWR-850)
 Alib files are up-to-date.
 Information: Evaluating DesignWare library utilization. (UISN-27)
@@ -1842,3 +1843,5 @@ Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated black box outputs. (PWR-428)
 1
+=======
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8

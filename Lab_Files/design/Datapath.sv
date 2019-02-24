@@ -63,13 +63,21 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     assign Funct3 = Instr[14:12];
       
 // //Register File
+<<<<<<< HEAD
     RegFile rf(clk, reset, RegWrite & (Instr[11] | Instr[10] | Instr[9] | Instr[8] | Instr[7]), Instr[11:7], Instr[19:15], Instr[24:20],
+=======
+    RegFile rf(clk, reset, RegWrite, Instr[11:7], Instr[19:15], Instr[24:20],
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
             RfInput, Reg1, Reg2);
             
     mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
 
+<<<<<<< HEAD
     //-----------------------------------ALUResult[0]---
     mux2 #(32) jumpmux(Result, PCPlus4, ( Branch & Instr[2]), Result2);
+=======
+    mux2 #(32) jumpmux(Result, PCPlus4, (ALUResult[0] & Branch & ~Instr[3]), Result2);
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 
     mux2 #(32) ld4mux(Result2, LoadOutput, (Instr[6:0] == 7'b0000011), RfInput);
   	mux2 #(32) ld1mux(NotWordOutput, Result2, Instr[13], LoadOutput);

@@ -1,12 +1,13 @@
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/gtech.db'
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/standard.sldb'
   Loading link library 'saed32lvt_tt1p05vn40c'
-  Loading link library 'saed32sram_tt1p05vn40c'
   Loading link library 'gtech'
+Warning: Can't read link_library file 'saed32sram_tt1p05vn40c'. (UID-3)
 Running PRESTO HDLC
 Presto compilation completed successfully.
 Elaborated 1 design.
 Current design is now 'riscv'.
+Warning: Can't read link_library file 'saed32sram_tt1p05vn40c'. (UID-3)
 Information: Building the design 'Controller'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'ALUController'. (HDL-193)
@@ -100,7 +101,10 @@ Statistics for case statements in always block at line 28 in file
 Presto compilation completed successfully.
 Information: Building the design 'alu'. (HDL-193)
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:47: signed to unsigned assignment occurs. (VER-318)
+<<<<<<< HEAD
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:57: signed to unsigned assignment occurs. (VER-318)
+=======
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:79: signed to unsigned assignment occurs. (VER-318)
 
 Statistics for case statements in always block at line 34 in file
@@ -114,7 +118,11 @@ Presto compilation completed successfully.
 Information: Building the design 'datamemory'. (HDL-193)
 
 Inferred memory devices in process
+<<<<<<< HEAD
 	in routine datamemory line 18 in file
+=======
+	in routine datamemory line 17 in file
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
 ===========================================================================
 |    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -123,7 +131,11 @@ Inferred memory devices in process
 ===========================================================================
 
 Inferred memory devices in process
+<<<<<<< HEAD
 	in routine datamemory line 24 in file
+=======
+	in routine datamemory line 23 in file
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -647,6 +659,10 @@ Statistics for MUX_OPs
 ===========================================================
 |  datamemory/21   |  512   |   32    |      9       | N  |
 ===========================================================
+<<<<<<< HEAD
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv:18: Netlist for always_comb block contains a latch. (ELAB-974)
+=======
+Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv:17: Netlist for always_comb block contains a latch. (ELAB-974)
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 Presto compilation completed successfully.
 1

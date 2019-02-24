@@ -10,7 +10,11 @@ Report : power
         -verbose
 Design : riscv
 Version: J-2014.09-SP4
+<<<<<<< HEAD
 Date   : Sun Feb 24 11:09:39 2019
+=======
+Date   : Tue Feb 19 14:24:53 2019
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 ****************************************
 
 

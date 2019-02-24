@@ -2,6 +2,7 @@ analyze -format sverilog {   adder.sv   flopr.sv   imm_Gen.sv   mux2.sv   datame
 Running PRESTO HDLC
 Searching for ./adder.sv
 Searching for /ecelib/linware/synopsys15/dc/libraries/syn/adder.sv
+<<<<<<< HEAD
 Searching for /ecelib/linware/synopsys15/dc/packages/adder.sv
 Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/adder.sv
 Searching for /users/ugrad2/2012/spring/pooriam/libraries/adder.sv
@@ -86,8 +87,15 @@ Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/d
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv:17: the undeclared symbol 'AUIPC' assumed to have the default net type, which is 'wire'. (VER-936)
 Presto compilation completed successfully.
+=======
+Searching for /ecelib/linware/synopsys15/dc/minpower/syn/adder.sv
+Searching for /ecelib/linware/synopsys15/dc/dw/syn_ver/adder.sv
+Searching for /ecelib/linware/synopsys15/dc/dw/sim_ver/adder.sv
+Error:  Unable to open file `adder.sv': in search_path {. /ecelib/linware/synopsys15/dc/libraries/syn /ecelib/linware/synopsys15/dc/minpower/syn /ecelib/linware/synopsys15/dc/dw/syn_ver /ecelib/linware/synopsys15/dc/dw/sim_ver}. (VER-41)
+*** Presto compilation terminated with 1 errors. ***
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db'
-Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db'
+Warning: Can't read link_library file 'saed32sram_tt1p05vn40c'. (UID-3)
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/dw_foundation.sldb'
-1
-1
+0
+0

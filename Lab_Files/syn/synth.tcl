@@ -7,7 +7,11 @@
 set PROJECT_NAME                "112L-RISCV"
 set TOP                         "riscv"
 set FILES                       "files_riscv"
+<<<<<<< HEAD
 set clock_period                10
+=======
+set clock_period                4
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 
 #==============================================================================
 #                  D I R E C T O R Y   S T R U C T U R E

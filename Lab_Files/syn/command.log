@@ -1,6 +1,10 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP4 for amd64 -- Mar 04, 2015
+<<<<<<< HEAD
 #@ # Date:   Sun Feb 24 10:46:22 2019
+=======
+#@ # Date:   Thu Feb 21 18:19:20 2019
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 #@ # Run by: sbkam@zuma.eecs.uci.edu
 #@ 
 
@@ -3768,7 +3772,11 @@ source -echo -verbose /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/s
 #@ set PROJECT_NAME                "112L-RISCV"
 #@ set TOP                         "riscv"
 #@ set FILES                       "files_riscv"
+<<<<<<< HEAD
 #@ set clock_period                10
+=======
+#@ set clock_period                4
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
 #@ 
 #@ #==============================================================================
 #@ #                  D I R E C T O R Y   S T R U C T U R E
@@ -3904,6 +3912,7 @@ source -echo -verbose /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/s
 #@ 
 #@ 
 #@ redirect -tee -file ${REPORTS}/${TOP}.compile.rpt     { compile_ultra };
+<<<<<<< HEAD
 #@ 
 #@ 
 #@ #==============================================================================
@@ -3936,3 +3945,5 @@ source -echo -verbose /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/s
 #@ 
 #@ 
 #@ exit
+=======
+>>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8

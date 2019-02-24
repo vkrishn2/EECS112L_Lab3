@@ -1,0 +1,408 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+          Version J-2014.09-SP4 for RHEL64 -- Mar 04, 2015
+               Copyright (c) 1988-2015 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+Initializing gui preferences from file  /users/ugrad/2017/fall/sbkam/.synopsys_dv_prefs.tcl
+#==============================================================================
+#                      D E S I G N    P A R A M E T E R S
+#==============================================================================
+#
+#
+#
+set PROJECT_NAME                "112L-RISCV"
+112L-RISCV
+set TOP                         "riscv"
+riscv
+set FILES                       "files_riscv"
+files_riscv
+set clock_period                4
+4
+#==============================================================================
+#                  D I R E C T O R Y   S T R U C T U R E
+#==============================================================================
+#
+set synopsys_path                       [getenv "SYNOPSYS"]
+/ecelib/linware/synopsys15/dc
+set DESIGN                              $env(design)
+/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design
+set design                              $env(design)
+/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design
+set SOURCE                              "${DESIGN}"
+/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design
+set SCRIPTS                             "${PROJECT_NAME}/scripts"
+112L-RISCV/scripts
+set DBDIR                               "${PROJECT_NAME}/db"
+112L-RISCV/db
+set NETLIST                             "${PROJECT_NAME}/netlist"
+112L-RISCV/netlist
+set LOG                                 "${PROJECT_NAME}/log"
+112L-RISCV/log
+set REPORTS                             "${PROJECT_NAME}/reports"
+112L-RISCV/reports
+if { ![file exists $NETLIST] || ![file isdirectory $NETLIST] } {
+        file mkdir $NETLIST;
+}
+if { ![file exists $REPORTS] || ![file isdirectory $REPORTS] } {
+        file mkdir $REPORTS;
+}
+if { ![file exists $LOG] || ![file isdirectory $LOG] } {
+        file mkdir $LOG;
+}
+if { ![file exists $DBDIR] || ![file isdirectory $DBDIR] } {
+        file mkdir $DBDIR;
+}
+#==============================================================================
+#                       S E T U P    L I B R A R I E S
+#==============================================================================
+#
+set LVT_TSMCHOME "/users/ugrad2/2012/spring/pooriam/libraries/"
+/users/ugrad2/2012/spring/pooriam/libraries/
+set TECH_LIB_PATH_LVT_1P05_N40  "$LVT_TSMCHOME/saed32lvt_tt1p05vn40c.db"
+/users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db
+set TECH_LIB_PATH  $TECH_LIB_PATH_LVT_1P05_N40;  
+/users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db
+set MEM_LIB_LVT_1P05_N40    "saed32sram_tt1p05vn40c"
+saed32sram_tt1p05vn40c
+set TECH_LIB $TECH_LIB_PATH_LVT_1P05_N40;  
+/users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db
+set MEM_LIB $MEM_LIB_LVT_1P05_N40;  
+saed32sram_tt1p05vn40c
+set DRIVE_CELL BUFFD12BWP12TLVT; 
+BUFFD12BWP12TLVT
+set WC_OP_CONDS WCZ0D81COM;
+WCZ0D81COM
+set search_path [list . [format "%s%s"  $synopsys_path "/libraries/syn"]                         [format "%s%s"  $synopsys_path "/packages"]                         [format "%s%s"  $synopsys_path "/packages/IEEE"]                                                         ${LVT_TSMCHOME}                                                                 ${DESIGN}         /ecelib/linware/synopsys15/dc/packages/IEEE/src/                                                 ]
+. /ecelib/linware/synopsys15/dc/libraries/syn /ecelib/linware/synopsys15/dc/packages /ecelib/linware/synopsys15/dc/packages/IEEE /users/ugrad2/2012/spring/pooriam/libraries/ /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design /ecelib/linware/synopsys15/dc/packages/IEEE/src/
+set search_path "$search_path ${SOURCE} ${DBDIR} ./"
+. /ecelib/linware/synopsys15/dc/libraries/syn /ecelib/linware/synopsys15/dc/packages /ecelib/linware/synopsys15/dc/packages/IEEE /users/ugrad2/2012/spring/pooriam/libraries/ /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design /ecelib/linware/synopsys15/dc/packages/IEEE/src/ /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design 112L-RISCV/db ./
+set link_library   "* $TECH_LIB_PATH $MEM_LIB_LVT_1P05_N40"
+* /users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db saed32sram_tt1p05vn40c
+set target_library   "$TECH_LIB_PATH "
+/users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db 
+set symbol_library   "generic.sdb "
+generic.sdb 
+set WIRELOAD_MODEL "tcForQA"
+tcForQA
+set_app_var synthetic_library dw_foundation.sldb
+dw_foundation.sldb
+set_app_var link_library "* $link_library $target_library $synthetic_library"
+* * /users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db saed32sram_tt1p05vn40c /users/ugrad2/2012/spring/pooriam/libraries//saed32lvt_tt1p05vn40c.db  dw_foundation.sldb
+#==============================================================================
+#                        R E A D I N G   D E S I G N
+#==============================================================================
+define_design_lib WORK -path ./WORK
+1
+#
+source scripts/${FILES}.tcl -v -e  > ${LOG}/files_${TOP}.log
+#==============================================================================
+##     E L B O R A T I N G    A N D    O P T I M I Z I N G     D E S I G N S
+##==============================================================================
+#
+elaborate ${TOP}  > ${REPORTS}/${TOP}.elab.rpt
+current_design ${TOP}
+Current design is 'riscv'.
+{riscv}
+#==============================================================================
+#                      S Y N T H E S I S    C O N S T R A I N T S
+#==============================================================================
+set CORE_CLK_PERIOD            ${clock_period}
+4
+set CLK_NAME                       clk
+clk
+set INPUT_DELAY                    2.0
+2.0
+set OUTPUT_DELAY                   0.5
+0.5
+set MAX_AREA                       0; # Optimize the design for the smallest possible size
+0
+set CLK_SKEW                       0.14
+0.14
+set MAX_OUTPUT_LOAD                0
+0
+#==============================================================================
+#                       D E F I N E    C L O C K    P E R I O D S
+#==============================================================================
+create_clock -name $CLK_NAME    -period $CORE_CLK_PERIOD  -waveform  "0 [expr $CORE_CLK_PERIOD/2]"  [get_ports clk]
+Warning: Design 'riscv' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#set_clock_uncertainty $CLK_SKEW [get_clocks $CLK_NAME]
+#set_input_delay  $INPUT_DELAY  -max -clock $CLK_NAME [remove_from_collection [all_inputs] $CLK_PORT]
+#set_output_delay $OUTPUT_DELAY -max -clock $CLK_NAME [all_outputs]
+#set_max_area $MAX_AREA
+#set_driving_cell -lib_cell $DRIVE_CELL -pin $DRIVE_PIN [remove_from_collection [all_inputs] $CLK_PORT]
+#set_load  $MAX_OUTPUT_LOAD [all_outputs]
+#set_clock_uncertainty $CLK_SKEW [get_clocks $CLK_NAME]
+#set_clock_latency     0.2  [all_clocks]
+set_clock_transition 0 $CLK_NAME
+Warning: Design 'riscv' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_dont_touch dp/instr_mem
+Warning: Design 'riscv' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+puts "Linking"
+Linking
+redirect -tee -file ${REPORTS}/${TOP}.link.rpt  {link}
+
+  Linking design 'riscv'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (11 designs)              /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/syn/riscv.db, etc
+  saed32lvt_tt1p05vn40c (library) /users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db
+  saed32sram_tt1p05vn40c (library) /users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db
+  dw_foundation.sldb (library) /ecelib/linware/synopsys15/dc/libraries/syn/dw_foundation.sldb
+
+Information: Building the design 'datamemory'. (HDL-193)
+Warning:  File /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/syn/WORK/datamemory-verilog.pvl not found, or does not contain a usable description of datamemory. (ELAB-320)
+Error:  Module 'datamemory' cannot be found for elaboration. (ELAB-357)
+*** Presto compilation terminated with 1 errors. ***
+Warning: Unable to resolve reference 'datamemory' in 'Datapath'. (LINK-5)
+0
+#puts "Uniquifying"
+#redirect -tee -file ${REPORTS}/${TOP}.uniquify.rpt { uniquify };
+redirect -tee -file ${REPORTS}/${TOP}.compile.rpt     { compile_ultra };
+Warning: Design 'riscv' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | J-2014.09-DWBB_201409.4 |     *     |
+| Licensed DW Building Blocks        | J-2014.09-DWBB_201409.4 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 191 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Information: Building the design 'datamemory'. (HDL-193)
+Warning:  File /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/syn/WORK/datamemory-verilog.pvl not found, or does not contain a usable description of datamemory. (ELAB-320)
+Error:  Module 'datamemory' cannot be found for elaboration. (ELAB-357)
+*** Presto compilation terminated with 1 errors. ***
+Warning: Unable to resolve reference 'datamemory' in 'Datapath'. (LINK-5)
+Loaded alib file './alib-52/saed32lvt_tt1p05vn40c.db.alib'
+Information: Ungrouping hierarchy c before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy ac before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/pcadd before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/jumpmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/ld4mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/ld1mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/ld2mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/ld3_1mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/ld3_2mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/Ext_Imm before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/branchadd before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/branchmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/srcamux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/srcbmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/st2mux before Pass 1 (OPT-776)
+Information: Ungrouping 15 of 24 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'RegFile'
+ Implement Synthetic for 'RegFile'.
+  Processing 'Datapath'
+ Implement Synthetic for 'Datapath'.
+  Processing 'alu'
+Information: Added key list 'DesignWare' to design 'alu'. (DDB-72)
+ Implement Synthetic for 'alu'.
+  Processing 'riscv'
+  Processing 'flopr_WIDTH32'
+  Processing 'mux2_WIDTH32_0'
+Information: Building the design 'datamemory'. (HDL-193)
+Warning:  File /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/syn/WORK/datamemory-verilog.pvl not found, or does not contain a usable description of datamemory. (ELAB-320)
+Error:  Module 'datamemory' cannot be found for elaboration. (ELAB-357)
+*** Presto compilation terminated with 1 errors. ***
+Warning: Unable to resolve reference 'datamemory' in 'Datapath'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_tt1p05vn40c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_10, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_11, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_12, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_13, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_14, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_15, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_16, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_17, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_18, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_19, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_20, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_21, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_22, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_23, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_24, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_25, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_26, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_27, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_28, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_29, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_30, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_31, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_32, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_33, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_0, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_1, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_2, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_3, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_4, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_5, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_6, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_0, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_1, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_2, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_3, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_4, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_5, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_6, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_10, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_11, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_12, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_13, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_14, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_15, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_16, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_17, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_18, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_19, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_20, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_21, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_22, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_23, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_24, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_25, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_26, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_27, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_28, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_29, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_30, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_31, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_32, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_33, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_10, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_11, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_12, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_13, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_14, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_15, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_16, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_17, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_18, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_19, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_20, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_21, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_22, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_23, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_24, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_25, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_26, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_27, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_28, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_29, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_30, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_31, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_32, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_33, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_0, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_1, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_2, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_3, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_4, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_5, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_6, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_0, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_1, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_2, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_3, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_4, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_5, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_6, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_10, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_11, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_12, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_13, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_14, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_15, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_16, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_17, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_18, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_19, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_20, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_21, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_22, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_23, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_24, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_25, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_26, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_27, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_28, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_29, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_30, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_31, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_32, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_33, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
+Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 99.28%, undefined 0.72%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'Datapath'. (DDB-72)
