@@ -60,11 +60,7 @@ module Controller(
 
   assign ALUSrc   = (Opcode==LW || Opcode==SW || Opcode == RTypeI || Opcode==JALR || Opcode==AuiPC || Opcode==U);
   assign MemtoReg = (Opcode==LW);
-<<<<<<< HEAD
   assign RegWrite = (Opcode==R_TYPE || Opcode==LW || Opcode == RTypeI || Opcode==JALR || Opcode==AuiPC || Opcode==U || Opcode==JAL );
-=======
-  assign RegWrite = (Opcode==R_TYPE || Opcode==LW || Opcode == RTypeI || Opcode==JALR || Opcode==AuiPC || Opcode==U);
->>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8
   assign MemRead  = (Opcode==LW);
   assign MemWrite = (Opcode==SW);
   assign ALUOp[0] = (Opcode==SW ||Opcode==LW || Opcode==AuiPC);
