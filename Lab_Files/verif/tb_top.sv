@@ -25,7 +25,7 @@ module tb_top;
 
   initial begin
     $readmemb ("$verif/program/inst.bin" ,riscV.dp.instr_mem.Inst_mem);
-    #1000;
+    #2000;
     $finish;
    end
 endmodule

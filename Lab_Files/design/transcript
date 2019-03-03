@@ -16,9 +16,3 @@
 # //
 # waveform.wlf opened as dataset "waveform"
 add wave -position insertpoint waveform:/tb_top/riscV/dp/alu_module/*
-add wave -position insertpoint waveform:/tb_top/riscV/dp/pcreg/*
-<<<<<<< HEAD
-add wave -position insertpoint waveform:/tb_top/riscV/dp/rf/*
-add wave -position insertpoint waveform:/tb_top/riscV/dp/Ext_Imm/*
-=======
->>>>>>> eb008c6329fd83437d1e939e8c037b9973449bb8

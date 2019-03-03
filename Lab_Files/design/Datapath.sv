@@ -40,8 +40,8 @@ module Datapath #(
     output logic [DATA_W-1:0] WB_Data //ALU_Result
     );
 
-logic [PC_W-1:0] PC, PCPlus4;
-logic [INS_W-1:0] Instr;
+logic [PC_W-1:0] PC, PCPlus4, PC_i;
+logic [INS_W-1:0] Instr, Instr_i;
 logic [DATA_W-1:0] Result, Result2;
 logic [DATA_W-1:0] Reg1, Reg2;
 logic [DATA_W-1:0] ByteOutput, HalfOutput, NotWordOutput, LoadOutput, StoreNotWordOutput, StoreOutput, RfInput, DataMemInput;
@@ -57,6 +57,12 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
+
+/*---------------------------------------------IF/ID------------------------------------------*/
+
+    //IF_ID #(32) if_id(clk, reset, Instr_i, PC_i, Instr, PC);
+
+/*--------------------------------------------------------------------------------------------*/
     
     assign opcode = Instr[6:0];
     assign Funct7 = Instr[31:25];
@@ -82,12 +88,26 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     adder #(32) branchadd (PC, ExtImm, PCBranch);
     mux2 #(32) branchmux(PCPlus4, PCBranch, ((Branch & ALUResult[0]) || (Branch & Instr[2])), PCNext);
 
+/*-------------------------------------------------ID/EX------------------------------------------------*/
+
+    /*ID_EX #(32) id_ex(clk, reset, instr, PC, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, ALUOp, Branch, AUIPC,
+                      ALUSrc_o, logic MemtoReg_o, RegWrite_o, MemRead_o, MemWrite_o,  ALUOp_o, Branch_o, AUIPC_o, instr_o, PC_o);*/
+
+/*------------------------------------------------------------------------------------------------------*/
+
 //// ALU
     mux2 #(32) srcamux(Reg1, PC, AUIPC, SrcA);
     mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);
     alu alu_module(SrcA, SrcB, ALU_CC, ALUResult);
     
     assign WB_Data = Result;
+
+/*-----------------------------------------------EX/MEM--------------------------------------------------*/
+
+    /*EX_MEM #(32) ex_mem(clk, reset, instr, PC, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALU_Result,
+                        MemtoReg_o, RegWrite_o, MemRead_o, MemWrite_o, Branch_o, ALU_Result_o, instr_o, PC_o);*/
+
+/*-------------------------------------------------------------------------------------------------------*/
     
 ////// Data memory 
 	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
@@ -96,5 +116,11 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
     mux2 #(32) st1mux(StoreNotWordOutput, Reg2 , Instr[13], StoreOutput);
     mux2 #(32) st2mux({Reg2[7] ? 24'b111111111111111111111111:24'b0, Reg2[7:0]}, {Reg2[15] ? 16'b1111111111111111:16'b0, Reg2[15:0]}, Instr[12], StoreNotWordOutput);
 
+/*----------------------------------------------MEM/WB---------------------------------------------------*/
+
+    /*MEM_WB #(32) mem_wb(clk, reset, instr, MemtoReg, RegWrite
+                        MemtoReg_o, RegWrite_o, instr_o);*/
+
+/*-------------------------------------------------------------------------------------------------------*/
      
 endmodule
