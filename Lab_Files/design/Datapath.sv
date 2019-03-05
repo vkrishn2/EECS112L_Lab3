@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`include "RegPack.sv"
+`include "Pipe_Reg.sv"
 import Pipe_Reg_PKG::*;
 
 module Datapath #(
@@ -74,7 +74,7 @@ always @(posedge clk)
             A.PCPlus4 <= 0;
             A.Instr <= 0;
         end
-        else if (!Reg_Stall)    // stall
+        else    // stall
         begin
             A.PC <= PC;
             A.PCPlus4 <= PCPlus4;
@@ -145,8 +145,8 @@ always @(posedge clk)
             B.Reg2 <= Reg2;
             B.rd <= A.Instr[11:7];
             B.ExtImm <= ExtImm;
-            B.func3 <= A.Curr_Instr[14:12];
-            B.func7 <= A.Curr_Instr[31:25];
+            B.func3 <= A.Instr[14:12];
+            B.func7 <= A.Instr[31:25];
             B.Instr <= A.Instr;   //debug tmp
         end
     end
@@ -154,7 +154,7 @@ always @(posedge clk)
 
 //// ALU
     mux2 #(32) srcamux(B.Reg1, B.PC, B.AUIPC, SrcA);
-    mux2 #(32) srcbmux(B.Reg2, B.ExtImm, B.ALUsrc, SrcB);
+    mux2 #(32) srcbmux(B.Reg2, B.ExtImm, B.ALUSrc, SrcB);
     alu alu_module(SrcA, SrcB, B.ALU_CC, ALUResult);
     
     assign WB_Data = Result;
@@ -173,7 +173,7 @@ always @(posedge clk)
             C.PCPlus4 <= 0;
             C.ExtImm <= 0;
             C.ALUResult <= 0;
-            C.reg2 <= 0;
+            C.Reg2 <= 0;
             C.rd <= 0;
             C.func3 <= 0;
             C.func7 <= 0;
@@ -190,7 +190,7 @@ always @(posedge clk)
             C.PCPlus4 <= B.PCPlus4;;
             C.ExtImm <= B.ExtImm;
             C.ALUResult <= ALUResult;
-            C.reg2 <= B.reg2;
+            C.Reg2 <= B.Reg2;
             C.rd <= B.rd;
             C.func3 <= B.func3;
             C.func7 <= B.func7;

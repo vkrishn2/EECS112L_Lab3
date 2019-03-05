@@ -139,7 +139,7 @@ r1
 31
 vadder
 Z33 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z34 !s110 1551742409
+Z34 !s110 1551768620
 !i10b 1
 R27
 R28
@@ -155,8 +155,8 @@ R14
 r1
 !s85 0
 31
-Z35 !s108 1551742409.000000
-R15
+Z35 !s108 1551768620.000000
+Z36 !s107 Pipe_Reg.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv|
 R16
 !i113 0
 R17
@@ -179,7 +179,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -202,7 +202,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -226,7 +226,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -249,33 +249,59 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
 vDatapath
 R33
-R34
-!i10b 1
-!s100 0jgdl``VQkmH2V4m^j>J83
-I=_EAn<i=DSlRO]U3ammWB3
+Z37 DXx4 work 12 Pipe_Reg_PKG 0 22 @_X`d:BIEc8^_BlcE@nHi2
+DXx4 work 16 Datapath_sv_unit 0 22 5i4S4FAGI_h1TknYaQVZD1
 R21
-R22
-S1
-R23
-w1551742407
-R18
-R19
-R20
-R14
 r1
 !s85 0
 31
+!i10b 1
+!s100 jgiTO3meg^diaYUVY?Am=1
+IL01H4n50<dIeLBI20IIbF3
+R22
+S1
+R23
+Z38 w1551768133
+R18
+R19
+L0 24
+R14
 R35
-R15
+R36
 R16
 !i113 0
 R17
+XDatapath_sv_unit
+R33
+R37
+V5i4S4FAGI_h1TknYaQVZD1
+r1
+!s85 0
+31
+!i10b 1
+!s100 nPMXk]:HEbA1P[`RF@c?P2
+I5i4S4FAGI_h1TknYaQVZD1
+!i103 1
+S1
+R23
+R38
+R18
+R19
+Z39 FPipe_Reg.sv
+R20
+R14
+R35
+R36
+R16
+!i113 0
+R17
+n@datapath_sv_unit
 vflopr
 R33
 R34
@@ -295,7 +321,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -318,7 +344,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -341,7 +367,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -364,10 +390,33 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
+XPipe_Reg_PKG
+R33
+R34
+!i10b 1
+!s100 aY;FdZe`RP_E8ZhC?]V=h2
+I@_X`d:BIEc8^_BlcE@nHi2
+V@_X`d:BIEc8^_BlcE@nHi2
+S1
+R23
+w1551767935
+8Pipe_Reg.sv
+R39
+L0 1
+R14
+r1
+!s85 0
+31
+R35
+R36
+R16
+!i113 0
+R17
+n@pipe_@reg_@p@k@g
 vRegFile
 R33
 R34
@@ -387,7 +436,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -411,7 +460,7 @@ r1
 !s85 0
 31
 R35
-R15
+R36
 R16
 !i113 0
 R17
@@ -440,7 +489,7 @@ R35
 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Ttb_top_opt
 R34
-VKnkcEI7__@]Q<U8GDNnY?3
+VJOb:hB8lQ[JYfWVG=;][j3
 R7
 R8
 R9

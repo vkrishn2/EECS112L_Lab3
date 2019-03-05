@@ -39,7 +39,7 @@ package  Pipe_Reg_PKG;
         logic [31:0] PCPlus4;
         logic [31:0] ExtImm;
         logic [31:0] ALUResult;
-        logic [31:0] reg2;
+        logic [31:0] Reg2;
         logic [4:0] rd;
         logic [2:0] func3;
         logic [6:0] func7;
