@@ -55,12 +55,12 @@ logic [PC_W-1:0] PCBranch, PCNext, PCNext2;
 if_id_reg A;
 id_ex_reg B;
 ex_mem_reg C;
-mem_wb_reg D
+mem_wb_reg D;
 
 // next PC
     adder #(32) pcadd (PC, 32'b100, PCPlus4);
     flopr #(32) pcreg(clk, reset, PCNext2, PC);
-    mux2  #(32) jumpmux2(PCNext, {ALUResult[31:1], 1'b0}, (Branch & Instr[3:2] == 2'b01), PCNext2);
+    mux2  #(32) jumpmux2(PCNext, {C.ALUResult[31:1], 1'b0}, (C.Branch & C.Instr[3:2] == 2'b01), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -70,39 +70,39 @@ always @(posedge clk)
     begin
         if (reset)   // initialization or flush
         begin
-            A.Curr_Pc <= 0;
-            A.Curr_Instr <= 0;
+            A.PC <= 0;
+            A.PCPlus4 <= 0;
+            A.Instr <= 0;
         end
         else if (!Reg_Stall)    // stall
         begin
-            A.Curr_Pc <= PC;
-            A.Curr_Instr <= Instr;
+            A.PC <= PC;
+            A.PCPlus4 <= PCPlus4;
+            A.Instr <= Instr;
         end
     end
 /*--------------------------------------------------------------------------------------------*/
     
-    assign opcode = Instr[6:0];
-    assign Funct7 = Instr[31:25];
-    assign Funct3 = Instr[14:12];
+    assign opcode = A.Instr[6:0];
+    assign Funct7 = A.Instr[31:25];
+    assign Funct3 = A.Instr[14:12];
       
 // //Register File
-    RegFile rf(clk, reset, RegWrite & (Instr[11]|Instr[10]|Instr[9]|Instr[8]|Instr[7]), Instr[11:7], Instr[19:15], Instr[24:20],
+    RegFile rf(clk, reset, D.RegWrite & (D.Instr[11]|D.Instr[10]|D.Instr[9]|D.Instr[8]|D.Instr[7]), D.rd, A.Instr[19:15], A.Instr[24:20],
             RfInput, Reg1, Reg2);
             
-    mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
-
-    //-----------------------------------ALUResult[0]---
+    /*mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
     mux2 #(32) jumpmux(Result, PCPlus4, ( Branch & Instr[2]), Result2);
 
     mux2 #(32) ld4mux(Result2, LoadOutput, (Instr[6:0] == 7'b0000011), RfInput);
   	mux2 #(32) ld1mux(NotWordOutput, Result2, Instr[13], LoadOutput);
   	mux2 #(32) ld2mux(ByteOutput,HalfOutput, Instr[12], NotWordOutput);
     mux2 #(32) ld3_1mux({Result2[15] ? 16'b1111111111111111:16'b0, Result2[15:0]}, {16'b0, Result2[15:0]}, (Instr[14:12] == 3'b101), HalfOutput);
-    mux2 #(32) ld3_2mux({Result2[7] ?  24'b111111111111111111111111:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (Instr[14:12] == 3'b100), ByteOutput);
+    mux2 #(32) ld3_2mux({Result2[7] ?  24'b111111111111111111111111:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (Instr[14:12] == 3'b100), ByteOutput);*/
            
 //// sign extend
-    imm_Gen Ext_Imm (Instr,ExtImm);
-    adder #(32) branchadd (PC, ExtImm, PCBranch);
+    imm_Gen Ext_Imm (A.Instr,ExtImm);
+    adder #(32) branchadd (A.PC, ExtImm, PCBranch);
 
 /*-------------------------------------------------ID/EX------------------------------------------------*/
 always @(posedge clk) 
@@ -114,19 +114,19 @@ always @(posedge clk)
             B.RegWrite <= 0; 
             B.MemRead <= 0;
             B.MemWrite <= 0;
-            B.ALUOp <= 0;
+            B.ALU_CC <= 0;
             B.Branch <= 0;
             B.AUIPC <= 0;
-            B.Curr_Pc <= 0;
-            //B.RD_One <= 0;
-            //B.RD_Two <= 0;
-            B.RS_One <= 0;
-            B.RS_Two <= 0;
+            B.PC <= 0;
+            B.PCBranch <= 0;
+            B.PCPlus4 <= 0;
+            B.Reg1 <= 0;
+            B.Reg2 <= 0;
             B.rd <= 0;
-            B.ImmG <= 0;
+            B.ExtImm <= 0;
             B.func3 <= 0;
             B.func7 <= 0;
-             B.Curr_Instr <= A.Curr_Instr;   //debug tmp
+             B.Instr <= 0;
         end
         else
         begin
@@ -135,29 +135,27 @@ always @(posedge clk)
             B.RegWrite <= RegWrite;
             B.MemRead <= MemRead;
             B.MemWrite <= MemWrite;
-            B.ALUOp <= ALUOp;
+            B.ALU_CC <= ALU_CC;
             B.Branch <= Branch;
             B.AUIPC <= AUIPC;
-            B.Curr_Pc <= A.Curr_Pc;
-            //B.RD_One <= Reg1;
-            //B.RD_Two <= Reg2;
-            B.RS_One <= A.Curr_Instr[19:15];
-            B.RS_Two <= A.Curr_Instr[24:20];
-            B.rd <= A.Curr_Instr[11:7];
-            B.ImmG <= ExtImm;
+            B.PC <= A.PC;
+            B.PCBranch <= PCBranch;
+            B.PCPlus4 <= A.PCPlus4;
+            B.Reg1 <= Reg1;
+            B.Reg2 <= Reg2;
+            B.rd <= A.Instr[11:7];
+            B.ExtImm <= ExtImm;
             B.func3 <= A.Curr_Instr[14:12];
             B.func7 <= A.Curr_Instr[31:25];
-             B.Curr_Instr <= A.Curr_Instr;   //debug tmp
+            B.Instr <= A.Instr;   //debug tmp
         end
     end
 /*------------------------------------------------------------------------------------------------------*/
 
 //// ALU
-    mux2 #(32) srcamux(Reg1, PC, AUIPC, SrcA);
-    mux2 #(32) srcbmux(Reg2, ExtImm, ALUsrc, SrcB);
-    alu alu_module(SrcA, SrcB, ALU_CC, ALUResult);
-
-    mux2 #(32) branchmux(PCPlus4, PCBranch, ((Branch & ALUResult[0]) || (Branch & Instr[2])), PCNext);
+    mux2 #(32) srcamux(B.Reg1, B.PC, B.AUIPC, SrcA);
+    mux2 #(32) srcbmux(B.Reg2, B.ExtImm, B.ALUsrc, SrcB);
+    alu alu_module(SrcA, SrcB, B.ALU_CC, ALUResult);
     
     assign WB_Data = Result;
 
@@ -170,15 +168,16 @@ always @(posedge clk)
             C.MemtoReg <= 0;
             C.MemRead <= 0;
             C.MemWrite <= 0;
-            //C.RWSel <= 0;
-            C.Curr_Pc <= 0;
-            C.Pc_Four <= 0;
-            C.Imm_Out <= 0;
-            C.Alu_Result <= 0;
-            //C.RD_Two <= 0;
+            C.Branch <= 0;
+            C.PCBranch <= 0;
+            C.PCPlus4 <= 0;
+            C.ExtImm <= 0;
+            C.ALUResult <= 0;
+            C.reg2 <= 0;
             C.rd <= 0;
             C.func3 <= 0;
             C.func7 <= 0;
+            C.Instr <= 0;
         end
         else
         begin
@@ -186,26 +185,28 @@ always @(posedge clk)
             C.MemtoReg <= B.MemtoReg;
             C.MemRead <= B.MemRead;
             C.MemWrite <= B.MemWrite;
-            //C.RWSel <= B.RWSel;
-            C.Curr_Pc <= PCBranch;
-            C.Pc_Four <= Old_PC_Four;
-            C.Imm_Out <= B.ImmG;
-            C.Alu_Result <= ALUResult;
-            //C.RD_Two <= FBmux_Result;
+            C.Branch <= B.Branch;
+            C.PCBranch <= PCBranch;
+            C.PCPlus4 <= B.PCPlus4;;
+            C.ExtImm <= B.ExtImm;
+            C.ALUResult <= ALUResult;
+            C.reg2 <= B.reg2;
             C.rd <= B.rd;
             C.func3 <= B.func3;
             C.func7 <= B.func7;
-             C.Curr_Instr <= B.Curr_Instr;   // debug tmp
+            C.Instr <= B.Instr;   // debug tmp
         end
     end
 /*-------------------------------------------------------------------------------------------------------*/
     
 ////// Data memory 
-	datamemory data_mem (clk, MemRead, MemWrite, ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
+  mux2 #(32) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
+
+	datamemory data_mem (clk, C.MemRead, C.MemWrite, C.ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
 
 	  //mux2 #(32) st3mux(Reg2, StoreOutput,(Instr[6:0]== 7'b0100011), DataMemInput);
-    mux2 #(32) st1mux(StoreNotWordOutput, Reg2 , Instr[13], StoreOutput);
-    mux2 #(32) st2mux({Reg2[7] ? 24'b111111111111111111111111:24'b0, Reg2[7:0]}, {Reg2[15] ? 16'b1111111111111111:16'b0, Reg2[15:0]}, Instr[12], StoreNotWordOutput);
+    mux2 #(32) st1mux(StoreNotWordOutput, C.Reg2 , C.Instr[13], StoreOutput);
+    mux2 #(32) st2mux({C.Reg2[7] ? 24'b111111111111111111111111:24'b0, C.Reg2[7:0]}, {C.Reg2[15] ? 16'b1111111111111111:16'b0, C.Reg2[15:0]}, C.Instr[12], StoreNotWordOutput);
 
 /*----------------------------------------------MEM/WB---------------------------------------------------*/
 always @(posedge clk) 
@@ -214,28 +215,37 @@ always @(posedge clk)
         begin
             D.RegWrite <= 0;
             D.MemtoReg <= 0;
-            //D.RWSel <= 0;
-            D.Pc_Imm <= 0;
-            D.Pc_Four <= 0;
-            D.Imm_Out <= 0;
-            D.Alu_Result <= 0;
-            D.MemReadData <= 0;
+            D.Branch <= 0;
+            D.PCPlus4 <= 0;
+            D.ExtImm <= 0;
+            D.ALUResult <= 0;
+            D.ReadData <= 0;
             D.rd <= 0;
+            D.Instr <= 0;
         end
         else
         begin
             D.RegWrite <= C.RegWrite;
             D.MemtoReg <= C.MemtoReg;
-            //D.RWSel <= C.RWSel;
-            D.Curr_Pc <=C.Curr_Pc;
-            D.Pc_Four <= C.Pc_Four;
-            D.Imm_Out <= C.Imm_Out;
-            D.Alu_Result <= C.Alu_Result;
-            D.MemReadData <= ReadData;
+            D.Branch <= C.Branch;
+            D.PCPlus4 <= C.PCPlus4;
+            D.ExtImm <= C.ExtImm;
+            D.ALUResult <= C.ALUResult;
+            D.ReadData <= ReadData;
             D.rd <= C.rd;
-             D.Curr_Instr <= C.Curr_Instr;   //Debug Tmp
+             D.Instr <= C.Instr;   //Debug Tmp
         end
     end
 /*-------------------------------------------------------------------------------------------------------*/
-     
+
+   mux2 #(32) resmux(D.ALUResult, D.ReadData, D.MemtoReg, Result);
+   mux2 #(32) jumpmux(Result, D.PCPlus4, ( D.Branch & D.Instr[2]), Result2);
+
+   mux2 #(32) ld4mux(Result2, LoadOutput, (D.Instr[6:0] == 7'b0000011), RfInput);
+   mux2 #(32) ld1mux(NotWordOutput, Result2, D.Instr[13], LoadOutput);
+   mux2 #(32) ld2mux(ByteOutput,HalfOutput, D.Instr[12], NotWordOutput);
+   mux2 #(32) ld3_1mux({Result2[15] ? 16'b1111111111111111:16'b0, Result2[15:0]}, {16'b0, Result2[15:0]}, (D.Instr[14:12] == 3'b101), HalfOutput);
+   mux2 #(32) ld3_2mux({Result2[7] ?  24'b111111111111111111111111:24'b0, Result2[7:0]}, {24'b0, Result2[7:0]}, (D.Instr[14:12] == 3'b100), ByteOutput);
+
+
 endmodule
