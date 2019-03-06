@@ -19,6 +19,8 @@ package  Pipe_Reg_PKG;
         logic [31:0] PC;
         logic [31:0] PCBranch;
         logic [31:0] PCPlus4;
+        logic [4:0]  Reg1_id;
+        logic [4:0]  Reg2_id;
         logic [31:0] Reg1;
         logic [31:0] Reg2;
         logic [4:0] rd;

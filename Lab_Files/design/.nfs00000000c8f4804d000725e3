@@ -163,6 +163,12 @@ always @(posedge clk)
 /*------------------------------------------------------------------------------------------------------*/
 
 //// ALU
+    /*mux2 #(32) srcamux(B.Reg1, B.PC, B.AUIPC, SrcA);
+    mux2 #(32) srcbmux(B.Reg2, B.ExtImm, B.ALUSrc, SrcB);
+
+    mux3 #(32) srca2mux(SrcA, C.ALUResult, RfInput, Forward_ControlA, SrcA2);
+    mux3 #(32) srcb2mux(SrcB, C.ALUResult, RfInput, Forward_ControlB, SrcB2);*/
+    
     mux3 #(32) srca2mux(B.Reg1, C.ALUResult, RfInput, Forward_ControlA, SrcA);
     mux3 #(32) srcb2mux(B.Reg2, C.ALUResult, RfInput, Forward_ControlB, SrcB);
     
