@@ -37,6 +37,7 @@ module Datapath #(
     Branch ,  AUIPC,
     input logic [1:0] Forward_ControlA,
     input logic [1:0] Forward_ControlB,
+    //input logic Branch_Flush,
     input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
@@ -46,6 +47,7 @@ module Datapath #(
     output logic [4:0] Reg2_id,
     output logic [4:0] ex_mem_rd,
     output logic [4:0] mem_wb_rd
+    //output logic ALU_Output
     );
 
 logic [PC_W-1:0] PC, PCPlus4;
@@ -66,7 +68,7 @@ mem_wb_reg D;
 // next PC
     adder #(32) pcadd (PC, 32'b100, PCPlus4);
     flopr #(32) pcreg(clk, reset, PCNext2, PC);
-    mux2  #(32) jumpmux2(PCNext, {C.ALUResult[31:1], 1'b0}, (C.Branch & C.Instr[3:2] == 2'b01), PCNext2);
+    mux2  #(32) jumpmux2(PCNext, {ALUResult[31:1], 1'b0}, (B.Branch & B.Instr[3:2] == 2'b01), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -74,7 +76,8 @@ mem_wb_reg D;
 /*---------------------------------------------IF/ID------------------------------------------*/
 always @(posedge clk) 
     begin
-        if (reset)   // initialization or flush
+    if(reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01))
+        //if (reset == 1)   // initialization or flush
         begin
             A.PC <= 0;
             A.PCPlus4 <= 0;
@@ -113,7 +116,7 @@ always @(posedge clk)
 /*-------------------------------------------------ID/EX------------------------------------------------*/
 always @(posedge clk) 
     begin
-        if (reset)   // initialization or flush or generate a NOP if hazard
+        if (reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01))// initialization or flush or generate a NOP if hazard
         begin
             B.ALUSrc <= 0; 
             B.MemtoReg <= 0;
@@ -171,10 +174,14 @@ always @(posedge clk)
     
 
     alu alu_module(SrcA2, SrcB2, B.ALU_CC, ALUResult);
+
+    mux2 #(32) branchmux(PCPlus4, B.PCBranch, ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])), PCNext);
+
     
     assign WB_Data = Result;
     assign Reg1_id = B.Reg1_id;
     assign Reg2_id = B.Reg2_id;
+    //assign ALU_Output = ALUResult[0];
 
 /*-----------------------------------------------EX/MEM--------------------------------------------------*/
 always @(posedge clk) 
@@ -219,7 +226,7 @@ always @(posedge clk)
 ////// Data memory 
   assign ex_mem_rd = C.rd;
 
-  mux2 #(32) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
+  //mux2 #(32) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
 
 	datamemory data_mem (clk, C.MemRead, C.MemWrite, C.ALUResult[DM_ADDRESS-1:0], StoreOutput, ReadData);
 
