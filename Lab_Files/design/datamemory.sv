@@ -18,6 +18,7 @@ module datamemory#(
 
     always_comb 
     begin
+      rd = 32'b0;
        if(MemRead)
         begin
             case(Funct3)
