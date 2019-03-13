@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP4 for amd64 -- Mar 04, 2015
-#@ # Date:   Tue Feb 26 01:07:57 2019
+#@ # Date:   Tue Mar 12 19:25:28 2019
 #@ # Run by: sbkam@zuma.eecs.uci.edu
 #@ 
 
@@ -3841,7 +3841,7 @@ source -echo -verbose /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/s
 #@ source scripts/${FILES}.tcl -v -e  > ${LOG}/files_${TOP}.log
 #@ # -- Starting source scripts/files_riscv.tcl
 
-#@ analyze -format sverilog {   adder.sv   flopr.sv   imm_Gen.sv   mux2.sv   datamemory.sv   instructionmemory.sv   ALUController.sv   alu.sv   RegFile.sv   Controller.sv   Datapath.sv   RISC_V.sv }
+#@ analyze -format sverilog {   adder.sv   flopr.sv   imm_Gen.sv   mux2.sv   datamemory.sv   instructionmemory.sv   ALUController.sv   alu.sv   RegFile.sv   Controller.sv   Datapath.sv   RISC_V.sv   Forward_Control.sv   Load_Use_Detection.sv   mux3.sv   Pipe_Reg.sv }
 #@ # -- End source scripts/files_riscv.tcl
 
 #@ 

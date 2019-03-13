@@ -1,4 +1,4 @@
-analyze -format sverilog {   adder.sv   flopr.sv   imm_Gen.sv   mux2.sv   datamemory.sv   instructionmemory.sv   ALUController.sv   alu.sv   RegFile.sv   Controller.sv   Datapath.sv   RISC_V.sv }
+analyze -format sverilog {   adder.sv   flopr.sv   imm_Gen.sv   mux2.sv   datamemory.sv   instructionmemory.sv   ALUController.sv   alu.sv   RegFile.sv   Controller.sv   Datapath.sv   RISC_V.sv   Forward_Control.sv   Load_Use_Detection.sv   mux3.sv   Pipe_Reg.sv }
 Running PRESTO HDLC
 Searching for ./adder.sv
 Searching for /ecelib/linware/synopsys15/dc/libraries/syn/adder.sv
@@ -72,6 +72,30 @@ Searching for /ecelib/linware/synopsys15/dc/packages/RISC_V.sv
 Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/RISC_V.sv
 Searching for /users/ugrad2/2012/spring/pooriam/libraries/RISC_V.sv
 Searching for /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
+Searching for ./Forward_Control.sv
+Searching for /ecelib/linware/synopsys15/dc/libraries/syn/Forward_Control.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/Forward_Control.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/Forward_Control.sv
+Searching for /users/ugrad2/2012/spring/pooriam/libraries/Forward_Control.sv
+Searching for /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Forward_Control.sv
+Searching for ./Load_Use_Detection.sv
+Searching for /ecelib/linware/synopsys15/dc/libraries/syn/Load_Use_Detection.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/Load_Use_Detection.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/Load_Use_Detection.sv
+Searching for /users/ugrad2/2012/spring/pooriam/libraries/Load_Use_Detection.sv
+Searching for /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Load_Use_Detection.sv
+Searching for ./mux3.sv
+Searching for /ecelib/linware/synopsys15/dc/libraries/syn/mux3.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/mux3.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/mux3.sv
+Searching for /users/ugrad2/2012/spring/pooriam/libraries/mux3.sv
+Searching for /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux3.sv
+Searching for ./Pipe_Reg.sv
+Searching for /ecelib/linware/synopsys15/dc/libraries/syn/Pipe_Reg.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/Pipe_Reg.sv
+Searching for /ecelib/linware/synopsys15/dc/packages/IEEE/Pipe_Reg.sv
+Searching for /users/ugrad2/2012/spring/pooriam/libraries/Pipe_Reg.sv
+Searching for /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Pipe_Reg.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/adder.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv
@@ -83,11 +107,12 @@ Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/d
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
-Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv:17: the undeclared symbol 'AUIPC' assumed to have the default net type, which is 'wire'. (VER-936)
-Presto compilation completed successfully.
+Error:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv:22: Unable to open file `Pipe_Reg_PKG.pvk': in search_path {/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/syn/WORK . /ecelib/linware/synopsys15/dc/libraries/syn /ecelib/linware/synopsys15/dc/packages /ecelib/linware/synopsys15/dc/packages/IEEE /users/ugrad2/2012/spring/pooriam/libraries/ /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design /ecelib/linware/synopsys15/dc/packages/IEEE/src/ 112L-RISCV/db ./}. (VER-292)
+Error:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv:22: Package 'Pipe_Reg_PKG' has not been analyzed for import or content extraction. (VER-224)
+Error:  Cannot recover from previous errors. (VER-518)
+*** Presto compilation terminated with 3 errors. ***
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db'
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db'
 Loading db file '/ecelib/linware/synopsys15/dc/libraries/syn/dw_foundation.sldb'
-1
-1
+0
+0

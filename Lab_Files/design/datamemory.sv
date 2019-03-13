@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+`define __SIM__
 module datamemory#(
     parameter DM_ADDRESS = 9 ,
     parameter DATA_W = 32
@@ -13,12 +13,11 @@ module datamemory#(
     output logic [ DATA_W -1:0] rd // Read Data
     );
     
-    //ifdef _SIM_
+`ifdef __SIM__
     logic [DATA_W-1:0] mem [(2**DM_ADDRESS)-1:0];
 
     always_comb 
     begin
-      rd = 32'b0;
        if(MemRead)
         begin
             case(Funct3)
@@ -44,9 +43,9 @@ module datamemory#(
         begin
             case(Funct3)
             3'b000: //SB
-                mem[a][7:0] =  wd[7:0];
+                mem[a] =  {wd[7]? 24'b111111111111111111111111:24'b0, wd[7:0]};
             3'b001: //SH
-                mem[a][15:0] = wd[15:0];
+                mem[a] = {wd[15]? 16'b1111111111111111:16'b0 , wd[15:0]};
             3'b010: //SW
                 mem[a] = wd;
             default:
@@ -55,7 +54,7 @@ module datamemory#(
         end
     end
    
-    /*else
+    `else
       logic we;
       assign we = MemWrite;
 
@@ -68,7 +67,7 @@ module datamemory#(
         .I       ( wd     ),
         .O       ( rd     )
         );
-     endif*/
+    `endif
 
 endmodule
 

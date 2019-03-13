@@ -81,7 +81,11 @@ mem_wb_reg D;
 /*---------------------------------------------IF/ID------------------------------------------*/
 always @(posedge clk) 
     begin
-    if(reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01))
+    if(ld_hazard)
+      begin
+        //Nothing happens
+      end
+    else if(reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01))
         //if (reset == 1)   // initialization or flush
         begin
             A.PC <= 0;
@@ -115,7 +119,7 @@ always @(posedge clk)
 /*-------------------------------------------------ID/EX------------------------------------------------*/
 always @(posedge clk) 
     begin
-        if (reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01))// initialization or flush or generate a NOP if hazard
+        if (reset || ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])) || (B.Branch & B.Instr[3:2] == 2'b01) || ld_hazard)// initialization or flush or generate a NOP if hazard
         begin
             B.ALUSrc <= 0; 
             B.MemtoReg <= 0;
@@ -165,8 +169,8 @@ always @(posedge clk)
 /*------------------------------------------------------------------------------------------------------*/
 
 //// ALU
-    mux3 #(32) srca2mux(B.Reg1, C.ALUResult, RfInput, Forward_ControlA, SrcA);
-    mux3 #(32) srcb2mux(B.Reg2, C.ALUResult, RfInput, Forward_ControlB, SrcB);
+    mux3 #(32) srca2mux(B.Reg1, C.ALUResult, Result2, Forward_ControlA, SrcA);
+    mux3 #(32) srcb2mux(B.Reg2, C.ALUResult, Result2, Forward_ControlB, SrcB);
     
     mux2 #(32) srcamux(SrcA, B.PC, B.AUIPC, SrcA2);
     mux2 #(32) srcbmux(SrcB, B.ExtImm, B.ALUSrc, SrcB2);
@@ -214,7 +218,7 @@ always @(posedge clk)
             C.PCPlus4 <= B.PCPlus4;;
             C.ExtImm <= B.ExtImm;
             C.ALUResult <= ALUResult;
-            C.Reg2 <= B.Reg2;
+            C.Reg2 <= SrcB;
             C.rd <= B.rd;
             C.func3 <= B.func3;
             C.func7 <= B.func7;
@@ -228,7 +232,7 @@ always @(posedge clk)
 
   //mux2 #(32) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
 
-	datamemory data_mem (clk, C.MemRead, C.MemWrite, C.ALUResult[DM_ADDRESS-1:0], C.Reg2, Funct3, ReadData);
+	datamemory data_mem (clk, C.MemRead, C.MemWrite, C.ALUResult[DM_ADDRESS-1:0], C.Reg2, C.func3, ReadData);
 
 	  //mux2 #(32) st3mux(Reg2, StoreOutput,(Instr[6:0]== 7'b0100011), DataMemInput);
     //mux2 #(32) st1mux(StoreNotWordOutput, C.Reg2 , C.Instr[13], StoreOutput);

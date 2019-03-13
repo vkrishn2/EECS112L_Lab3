@@ -35,9 +35,9 @@ always_comb
   begin
   
   if((ID_EX_MemRead & ((ID_EX_rd == IF_ID_rs1))) | (ID_EX_MemRead &(ID_EX_rd == IF_ID_rs2)))
-    assign ld_stall = 1;
+    ld_stall = 1;
   else
-    assign ld_stall = 0;
+    ld_stall = 0;
 
   end
 

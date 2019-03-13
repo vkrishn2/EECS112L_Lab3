@@ -36,18 +36,18 @@ always_comb
   begin
 
   if(Reg1_id == ex_mem_rd)
-    assign ControlA = 2'b01;
+    ControlA = 2'b01;
   else if(Reg1_id == mem_wb_rd)
-    assign ControlA = 2'b10;
+    ControlA = 2'b10;
   else
-    assign ControlA = 2'b00;
+    ControlA = 2'b00;
   
   if(Reg2_id == ex_mem_rd)
-    assign ControlB = 2'b01;
+    ControlB = 2'b01;
   else if(Reg2_id == mem_wb_rd)
-    assign ControlB = 2'b10;
+    ControlB = 2'b10;
   else
-    assign ControlB = 2'b00;
+    ControlB = 2'b00;
 
   end
 
