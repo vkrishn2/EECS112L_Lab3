@@ -1,0 +1,54 @@
+Information: Propagating switching activity (medium effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort medium
+        -verbose
+Design : riscv
+Version: J-2014.09-SP4
+Date   : Tue Mar 12 19:41:38 2019
+****************************************
+
+
+Library(s) Used:
+
+    saed32lvt_tt1p05vn40c (File: /users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db)
+    gtech (File: /ecelib/linware/synopsys15/dc/libraries/syn/gtech.db)
+
+
+Operating Conditions: tt1p05vn40c   Library: saed32lvt_tt1p05vn40c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+riscv                  ForQA             saed32lvt_tt1p05vn40c
+Datapath               ForQA             saed32lvt_tt1p05vn40c
+instructionmemory      ForQA             saed32lvt_tt1p05vn40c
+RegFile                16000             saed32lvt_tt1p05vn40c
+datamemory             280000            saed32lvt_tt1p05vn40c
+
+
+Global Operating Voltage = 1.05 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+riscv                                    13.299 1.15e+04 1.72e+11 1.84e+05 100.0
+  dp (Datapath)                          12.924 1.15e+04 1.72e+11 1.84e+05  99.9
+    data_mem (datamemory)                 0.323 1.04e+04 1.54e+11 1.65e+05  89.8
+    rf (RegFile)                          4.332  655.419 1.05e+10 1.11e+04   6.1
+    instr_mem (instructionmemory)         0.262    0.000    0.000    0.262   0.0
+      C37 (*MUX_OP_128_7_1)               0.111    0.000    0.000    0.111   0.0
+1
