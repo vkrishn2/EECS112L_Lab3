@@ -7,7 +7,7 @@ Warning: Design 'riscv' contains 1 high-fanout nets. A fanout number of 1000 wil
 Report : qor
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Tue Mar 12 19:41:14 2019
+Date   : Thu Mar 14 11:41:20 2019
 ****************************************
 
 
@@ -68,12 +68,12 @@ Date   : Tue Mar 12 19:41:14 2019
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   31.38
-  Logic Optimization:                 42.51
-  Mapping Optimization:              177.06
+  Resource Sharing:                   31.04
+  Logic Optimization:                 41.81
+  Mapping Optimization:              182.08
   -----------------------------------------
-  Overall Compile Time:              629.90
-  Overall Compile Wall Clock Time:   900.13
+  Overall Compile Time:              640.61
+  Overall Compile Wall Clock Time:   842.53
 
   --------------------------------------------------------------------
 
