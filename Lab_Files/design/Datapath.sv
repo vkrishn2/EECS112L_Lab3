@@ -22,7 +22,7 @@
 import Pipe_Reg_PKG::*;
 
 module Datapath #(
-    parameter PC_W = 32, // Program Counter
+    parameter PC_W = 9, // Program Counter
     parameter INS_W = 32, // Instruction Width
     parameter RF_ADDRESS = 5, // Register File Address
     parameter DATA_W = 32, // Data WriteData
@@ -70,10 +70,10 @@ ex_mem_reg C;
 mem_wb_reg D;
 
 // next PC
-    adder #(32) pcadd (PC, 32'b100, PCPlus4);
-    mux2  #(32) hazard_mux(PCNext2, PC, ld_hazard, PCNext3);
-    flopr #(32) pcreg(clk, reset, PCNext3, PC);
-    mux2  #(32) jumpmux2(PCNext, {ALUResult[31:1], 1'b0}, (B.Branch & B.Instr[3:2] == 2'b01), PCNext2);
+    adder #(PC_W) pcadd (PC, 9'b100, PCPlus4);
+    mux2  #(PC_W) hazard_mux(PCNext2, PC, ld_hazard, PCNext3);
+    flopr #(PC_W) pcreg(clk, reset, PCNext3, PC);
+    mux2  #(PC_W) jumpmux2(PCNext, {ALUResult[8:1], 1'b0}, (B.Branch & B.Instr[3:2] == 2'b01), PCNext2);
 
  //Instruction memory
     instructionmemory instr_mem (PC, Instr);
@@ -114,7 +114,7 @@ always @(posedge clk)
            
 //// sign extend
     imm_Gen Ext_Imm (A.Instr,ExtImm);
-    adder #(32) branchadd (A.PC, ExtImm, PCBranch);
+    adder #(PC_W) branchadd (A.PC, ExtImm[8:0], PCBranch);
 
 /*-------------------------------------------------ID/EX------------------------------------------------*/
 always @(posedge clk) 
@@ -172,13 +172,13 @@ always @(posedge clk)
     mux3 #(32) srca2mux(B.Reg1, C.ALUResult, Result2, Forward_ControlA, SrcA);
     mux3 #(32) srcb2mux(B.Reg2, C.ALUResult, Result2, Forward_ControlB, SrcB);
     
-    mux2 #(32) srcamux(SrcA, B.PC, B.AUIPC, SrcA2);
+    mux2 #(32) srcamux(SrcA, {23'b0,B.PC}, B.AUIPC, SrcA2);
     mux2 #(32) srcbmux(SrcB, B.ExtImm, B.ALUSrc, SrcB2);
     
 
     alu alu_module(SrcA2, SrcB2, B.ALU_CC, ALUResult);
 
-    mux2 #(32) branchmux(PCPlus4, B.PCBranch, ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])), PCNext);
+    mux2 #(PC_W) branchmux(PCPlus4, B.PCBranch, ((B.Branch & ALUResult[0]) || (B.Branch & B.Instr[2])), PCNext);
 
     
     assign WB_Data = Result;
@@ -230,7 +230,7 @@ always @(posedge clk)
 ////// Data memory 
   assign ex_mem_rd = C.rd;
 
-  //mux2 #(32) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
+  //mux2 #(PC_W) branchmux(PCPlus4, C.PCBranch, ((C.Branch & C.ALUResult[0]) || (C.Branch & C.Instr[2])), PCNext);
 
 	datamemory data_mem (clk, C.MemRead, C.MemWrite, C.ALUResult[DM_ADDRESS-1:0], C.Reg2, C.func3, ReadData);
 
@@ -270,7 +270,7 @@ always @(posedge clk)
    assign mem_wb_rd = D.rd;
 
    mux2 #(32) resmux(D.ALUResult, D.ReadData, D.MemtoReg, Result);
-   mux2 #(32) jumpmux(Result, D.PCPlus4, ( D.Branch & D.Instr[2]), Result2);
+   mux2 #(32) jumpmux(Result, {23'b0,D.PCPlus4}, ( D.Branch & D.Instr[2]), Result2);
 
    /*mux2 #(32) ld4mux(Result2, LoadOutput, (D.Instr[6:0] == 7'b0000011), RfInput);
    mux2 #(32) ld1mux(NotWordOutput, Result2, D.Instr[13], LoadOutput);
@@ -280,3 +280,4 @@ always @(posedge clk)
 
 
 endmodule
+

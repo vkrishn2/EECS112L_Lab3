@@ -11,7 +11,7 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 
 Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
 
-Information: There are 71 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 73 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 Loaded alib file './alib-52/saed32lvt_tt1p05vn40c.db.alib'
@@ -31,19 +31,20 @@ Information: Ungrouping hierarchy dp/srcamux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/srcbmux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/alu_module before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/branchmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy dp/data_mem before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/resmux before Pass 1 (OPT-776)
 Information: Ungrouping hierarchy dp/jumpmux before Pass 1 (OPT-776)
-Information: Ungrouping 18 of 23 hierarchies before Pass 1 (OPT-775)
+Information: Ungrouping 19 of 23 hierarchies before Pass 1 (OPT-775)
 Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'datamemory'
- Implement Synthetic for 'datamemory'.
   Processing 'RegFile'
  Implement Synthetic for 'RegFile'.
   Processing 'Datapath'
 Information: Added key list 'DesignWare' to design 'Datapath'. (DDB-72)
+Information: The register 'data_mem/re1_reg' is a constant and will be removed. (OPT-1206)
+Information: In design 'Datapath', the register 'data_mem/re3_reg' is removed because it is merged to 'data_mem/re4_reg'. (OPT-1215)
  Implement Synthetic for 'Datapath'.
   Processing 'riscv'
 Information: Added key list 'DesignWare' to design 'riscv'. (DDB-72)
@@ -134,6 +135,12 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
+Information: Complementing port 'opcode[5]' in design 'Datapath'.
+	 The new name of the port is 'opcode[5]_BAR'. (OPT-319)
+Information: Complementing port 'opcode[2]' in design 'Datapath'.
+	 The new name of the port is 'opcode[2]_BAR'. (OPT-319)
+Information: Complementing port 'Funct3[0]' in design 'Datapath'.
+	 The new name of the port is 'Funct3[0]_BAR'. (OPT-319)
 Information: Complementing port 'ID_EX_rd[2]' in design 'Datapath'.
 	 The new name of the port is 'ID_EX_rd[2]_BAR'. (OPT-319)
 Information: Complementing port 'ID_EX_rd[0]' in design 'Datapath'.
@@ -220,7 +227,7 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
 
 Threshold voltage group cell usage:
->> saed32cell_lvt 99.94%, undefined 0.06%
+>> saed32cell_lvt 99.38%, undefined 0.62%
 
   Beginning Mapping Optimizations  (Ultra High effort)
   -------------------------------
@@ -686,10 +693,10 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:08:11  291002.5      0.00       0.0     165.2                           231013744640.0000
-    0:08:12  291002.5      0.00       0.0     165.2                           231013744640.0000
-    0:08:12  291002.5      0.00       0.0     165.2                           231013744640.0000
-    0:08:14  291002.5      0.00       0.0     165.2                           231013744640.0000
+    0:00:55   89102.7      0.00       0.0     103.9                           22898550784.0000
+    0:00:55   89102.7      0.00       0.0     103.9                           22898550784.0000
+    0:00:55   89102.7      0.00       0.0     103.9                           22898550784.0000
+    0:00:55   89102.7      0.00       0.0     103.9                           22898550784.0000
   Re-synthesis Optimization (Phase 1)
   Re-synthesis Optimization (Phase 2)
   Global Optimization (Phase 1)
@@ -733,31 +740,31 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:09:47  333647.6      0.00       0.0    6251.3                           215258005504.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
+    0:01:04   87879.1      0.00       0.0      99.9                           20054253568.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
 
 Threshold voltage group cell usage:
->> saed32cell_lvt 99.93%, undefined 0.07%
+>> saed32cell_lvt 99.39%, undefined 0.61%
 
   Beginning Delay Optimization
   ----------------------------
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
@@ -767,7 +774,7 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:10:16  332295.1      0.00       0.0     264.7                           210453725184.0000
+    0:01:08   87964.5      0.00       0.0      95.3                           19551823872.0000
   Global Optimization (Phase 32)
   Global Optimization (Phase 33)
   Global Optimization (Phase 34)
@@ -847,8 +854,8 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_34, because
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_35, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
-    0:10:40  332310.0      0.00       0.0       0.0                           210631884800.0000
-    0:10:40  332310.0      0.00       0.0       0.0                           210631884800.0000
+    0:01:10   88009.3      0.00       0.0       0.0                           19621849088.0000
+    0:01:10   88009.3      0.00       0.0       0.0                           19621849088.0000
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
@@ -930,8 +937,8 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:10:41  332310.0      0.00       0.0       0.0                           210631884800.0000
-    0:11:02  332145.9      0.00       0.0      27.6                           210215272448.0000
+    0:01:10   88009.3      0.00       0.0       0.0                           19621849088.0000
+    0:01:13   87902.7      0.00       0.0      13.8                           19242321920.0000
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
@@ -1238,7 +1245,7 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_36, because
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because it is not driving any load. (OPT-112)
 
 Threshold voltage group cell usage:
->> saed32cell_lvt 99.93%, undefined 0.07%
+>> saed32cell_lvt 99.38%, undefined 0.62%
 
 
   Beginning Leakage Power Optimization  (max_leakage_power 0)
@@ -1248,7 +1255,7 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:11:26  332156.1      0.00       0.0      28.8                           210212487168.0000
+    0:01:16   87902.7      0.00       0.0      13.8                           19242321920.0000
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
   Global Optimization (Phase 37)
@@ -1263,28 +1270,26 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 46)
   Global Optimization (Phase 47)
   Global Optimization (Phase 48)
-Information: Complementing port 'opcode[5]' in design 'Datapath'.
-	 The new name of the port is 'opcode[5]_BAR'. (OPT-319)
-    0:11:57  335618.1      0.00       0.0       1.3                           209537482752.0000
-    0:11:57  335618.1      0.00       0.0       1.3                           209537482752.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:08  335614.3      0.00       0.0       0.0                           209530912768.0000
+    0:01:21   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:21   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:23   87883.2      0.00       0.0       0.0                           19208660992.0000
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_7, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_8, because it is not driving any load. (OPT-112)
 Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_9, because it is not driving any load. (OPT-112)
@@ -1366,13 +1371,12 @@ Warning: Removing don't touch or size only GTECH cell dp/instr_mem/B_37, because
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:12:24  335614.3      0.00       0.0       0.0                           209530912768.0000
-    0:12:34  335110.2      0.00       0.0       0.0                           211583664128.0000
-    0:12:35  335110.2      0.00       0.0       0.0                           211583664128.0000
-    0:13:08  335354.3      0.00       0.0       0.0 dp/net178942              209744838656.0000
-    0:13:09  335354.3      0.00       0.0       0.0                           209744838656.0000
-    0:13:09  335354.3      0.00       0.0       0.0                           209744838656.0000
-    0:13:44  341369.1      0.00       0.0       6.4                           209403772928.0000
+    0:01:24   87883.2      0.00       0.0       0.0                           19208660992.0000
+    0:01:26   87779.4      0.00       0.0       0.0                           19700310016.0000
+    0:01:26   87779.4      0.00       0.0       0.0                           19700310016.0000
+    0:01:28   87861.2      0.00       0.0       0.0                           19224166400.0000
+    0:01:28   87861.2      0.00       0.0       0.0                           19224166400.0000
+    0:01:30   88117.8      0.00       0.0       7.0                           19178924032.0000
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db'
 Loading db file '/users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db'
 
@@ -1383,7 +1387,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
   Optimization Complete
   ---------------------
 Warning: Design 'riscv' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'dp/data_mem/clk': 17989 load(s), 1 driver(s)
+     Net 'dp/rf/clk': 1453 load(s), 1 driver(s)
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated black box outputs. (PWR-428)

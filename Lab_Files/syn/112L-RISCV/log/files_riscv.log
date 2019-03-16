@@ -102,6 +102,7 @@ Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/d
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Controller.sv
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv
 Opening include file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Pipe_Reg.sv
+Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Pipe_Reg.sv:1: The package Pipe_Reg_PKG has already been analyzed. It is being replaced. (VER-26)
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv
 Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RISC_V.sv:25: the undeclared symbol 'AUIPC' assumed to have the default net type, which is 'wire'. (VER-936)
 Compiling source file /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Forward_Control.sv

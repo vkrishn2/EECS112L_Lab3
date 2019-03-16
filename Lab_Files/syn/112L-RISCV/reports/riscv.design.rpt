@@ -3,7 +3,7 @@
 Report : design
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Thu Mar 14 11:41:20 2019
+Date   : Sat Mar 16 00:10:29 2019
 ****************************************
 
 Design allows ideal nets on clock nets.
@@ -11,6 +11,7 @@ Design allows ideal nets on clock nets.
 Library(s) Used:
 
     saed32lvt_tt1p05vn40c (File: /users/ugrad2/2012/spring/pooriam/libraries/saed32lvt_tt1p05vn40c.db)
+    saed32sram_tt1p05vn40c (File: /users/ugrad2/2012/spring/pooriam/libraries/saed32sram_tt1p05vn40c.db)
     gtech (File: /ecelib/linware/synopsys15/dc/libraries/syn/gtech.db)
 
 Local Link Library:

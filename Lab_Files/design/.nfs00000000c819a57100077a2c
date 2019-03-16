@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-//`define __SIM__
+`define __SIM__
 module datamemory#(
     parameter DM_ADDRESS = 9 ,
     parameter DATA_W = 32
@@ -15,6 +15,7 @@ module datamemory#(
     
 `ifdef __SIM__
     logic [DATA_W-1:0] mem [(2**DM_ADDRESS)-1:0];
+    mem = 0;
 
     always_comb 
     begin

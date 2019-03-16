@@ -24,7 +24,7 @@ module instructionmemory#(
     parameter INS_ADDRESS = 9,
     parameter INS_W = 32
      )(
-    input logic [ 31:0] ra , // Read address of the instruction memory , comes from PC
+    input logic [ 8:0] ra , // Read address of the instruction memory , comes from PC
     output logic [ INS_W -1:0] rd // Read Data
     );
     

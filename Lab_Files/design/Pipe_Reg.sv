@@ -1,8 +1,8 @@
 package  Pipe_Reg_PKG;
     // Reg IF_ID
     typedef struct packed{
-        logic [31:0]    PC;
-        logic [31:0]    PCPlus4;
+        logic [8:0]    PC;
+        logic [8:0]    PCPlus4;
         logic [31:0]    Instr;
     } if_id_reg;
     
@@ -16,9 +16,9 @@ package  Pipe_Reg_PKG;
         logic [3:0] ALU_CC;
         logic Branch;
         logic AUIPC;
-        logic [31:0] PC;
-        logic [31:0] PCBranch;
-        logic [31:0] PCPlus4;
+        logic [8:0] PC;
+        logic [8:0] PCBranch;
+        logic [8:0] PCPlus4;
         logic [4:0]  Reg1_id;
         logic [4:0]  Reg2_id;
         logic [31:0] Reg1;
@@ -37,8 +37,8 @@ package  Pipe_Reg_PKG;
         logic MemRead;
         logic MemWrite;
         logic Branch;
-        logic [31:0] PCBranch;
-        logic [31:0] PCPlus4;
+        logic [8:0] PCBranch;
+        logic [8:0] PCPlus4;
         logic [31:0] ExtImm;
         logic [31:0] ALUResult;
         logic [31:0] Reg2;
@@ -53,7 +53,7 @@ package  Pipe_Reg_PKG;
         logic RegWrite;
         logic MemtoReg;
         logic Branch;
-        logic [31:0] PCPlus4;
+        logic [8:0] PCPlus4;
         logic [31:0] ExtImm;
         logic [31:0] ALUResult;
         logic [31:0] ReadData;
@@ -61,3 +61,4 @@ package  Pipe_Reg_PKG;
         logic [31:0] Instr;
     } mem_wb_reg;
 endpackage
+
