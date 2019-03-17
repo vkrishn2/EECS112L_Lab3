@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-//`define __SIM__
+
 module datamemory#(
     parameter DM_ADDRESS = 9 ,
     parameter DATA_W = 32
@@ -35,7 +35,7 @@ module datamemory#(
                 rd = mem[a];
             endcase
         end
-	end
+    end
     
     always @(posedge clk) 
     begin
@@ -58,15 +58,14 @@ module datamemory#(
       logic we;
       assign we = MemWrite;
       
-      logic [7:0] wd1, wd2, wd3, wd4, rd1, rd2, rd3, rd4;
+      logic [7:0] rd1, rd2, rd3, rd4;
       logic re1, re2, re3, re4;
-      
       
       always_comb 
       begin
         if(MemRead)
         begin
-            case(Funct3)
+            case(Funct3) 
              3'b100: //LBU
               begin
                 rd = {24'b0, rd1}; 
@@ -117,99 +116,58 @@ module datamemory#(
               end
             endcase
         end
+        else
+        begin
+            rd = {rd4,rd3,rd2,rd1};
+            re1 = 1'b1;
+            re2 = 1'b1;
+            re3 = 1'b1;
+            re4 = 1'b1;
+        end
       end
       
-      always @(posedge clk) 
-    begin
-       if (MemWrite)
-        begin
-            case(Funct3)
-            3'b000: //SB
-              begin
-                wd1 =  wd[7:0];
-                /*re1 = 1'b1;
-                re2 = 1'b0;
-                re3 = 1'b0;
-                re4 = 1'b0;*/
-              end
-            3'b001: //SH
-              begin
-                wd1 = wd[7:0];
-                wd2 = wd[15:8];
-                /*re1 = 1'b1;
-                re2 = 1'b1;
-                re3 = 1'b0;
-                re4 = 1'b0;*/
-              end
-            3'b010: //SW
-              begin
-                wd1 = wd[7:0];
-                wd2 = wd[15:8];
-                wd3 = wd[23:16];
-                wd4 = wd[31:24];
-                /*re1 = 1'b1;
-                re2 = 1'b1;
-                re3 = 1'b1;
-                re4 = 1'b1;*/
-              end
-            default:
-              begin
-                wd1 = wd[7:0];
-                wd2 = wd[15:8];
-                wd3 = wd[23:16];
-                wd4 = wd[31:24];
-                /*re1 = 1'b1;
-                re2 = 1'b1;
-                re3 = 1'b1;
-                re4 = 1'b1;*/
-              end
-            endcase
-        end
-    end
+
 
       SRAM1RW512x8 RAM (
         .A       ( a[8:0] ),
-        .CE      ( 1'b1   ),
+        .CE      ( clk    ),
         .WEB     ( ~we    ),
         .OEB     ( we     ),
-        .CSB     ( re1   ),
-        .I       ( wd1     ),
-        .O       ( rd1     )
+        .CSB     ( re1    ),
+        .I       ( wd[7:0]),
+        .O       ( rd1    )
         );
         
         SRAM1RW512x8 RAM1 (
         .A       ( a[8:0] ),
-        .CE      ( 1'b1   ),
+        .CE      ( clk    ),
         .WEB     ( ~we    ),
         .OEB     ( we     ),
-        .CSB     ( re2  ),
-        .I       ( wd2    ),
-        .O       ( rd2     )
+        .CSB     ( re2    ),
+        .I       ( wd[15:8]),
+        .O       ( rd2    )
         );
         
         SRAM1RW512x8 RAM2 (
         .A       ( a[8:0] ),
-        .CE      ( 1'b1   ),
+        .CE      ( clk    ),
         .WEB     ( ~we    ),
         .OEB     ( we     ),
-        .CSB     ( re3   ),
-        .I       ( wd3    ),
-        .O       ( rd3     )
+        .CSB     ( re3    ),
+        .I       ( wd[23:16]),
+        .O       ( rd3    )
         );
         
         SRAM1RW512x8 RAM3 (
         .A       ( a[8:0] ),
-        .CE      ( 1'b1   ),
+        .CE      ( clk    ),
         .WEB     ( ~we    ),
         .OEB     ( we     ),
-        .CSB     ( re4   ),
-        .I       ( wd4     ),
-        .O       ( rd4     )
+        .CSB     ( re4    ),
+        .I       ( wd[31:24]),
+        .O       ( rd4    )
         );
-        
-        
         
     `endif
 
 endmodule
-

@@ -10,7 +10,7 @@ Report : power
         -verbose
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Sat Mar 16 00:10:31 2019
+Date   : Sat Mar 16 17:50:47 2019
 ****************************************
 
 
@@ -45,9 +45,9 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-riscv                                    12.180 1.06e+03 1.64e+10 1.75e+04 100.0
-  dp (Datapath)                          11.775 1.06e+03 1.62e+10 1.73e+04  99.2
-    rf (RegFile)                          4.312  655.345 1.05e+10 1.11e+04  63.8
-    instr_mem (instructionmemory)         0.262    0.000    0.000    0.262   0.0
-      C37 (*MUX_OP_128_7_1)               0.111    0.000    0.000    0.111   0.0
+riscv                                    30.187 2.51e+03 1.59e+10 1.85e+04 100.0
+  dp (Datapath)                          29.189 2.51e+03 1.58e+10 1.83e+04  99.3
+    rf (RegFile)                         10.458 1.64e+03 1.04e+10 1.21e+04  65.5
+    instr_mem (instructionmemory)         0.654    0.000    0.000    0.654   0.0
+      C37 (*MUX_OP_128_7_1)               0.277    0.000    0.000    0.277   0.0
 1

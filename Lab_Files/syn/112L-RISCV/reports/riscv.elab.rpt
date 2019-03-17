@@ -19,7 +19,7 @@ Information: Building the design 'Datapath'. (HDL-193)
 
 Inferred memory devices in process
 	in routine Datapath line 82 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -28,7 +28,7 @@ Inferred memory devices in process
 
 Inferred memory devices in process
 	in routine Datapath line 120 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -37,7 +37,7 @@ Inferred memory devices in process
 
 Inferred memory devices in process
 	in routine Datapath line 191 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -46,7 +46,7 @@ Inferred memory devices in process
 
 Inferred memory devices in process
 	in routine Datapath line 242 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/Datapath.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/Datapath.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -64,7 +64,7 @@ Information: Building the design 'flopr' instantiated from design 'Datapath' wit
 
 Inferred memory devices in process
 	in routine flopr_WIDTH9 line 29 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/flopr.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/flopr.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -83,7 +83,7 @@ Information: Building the design 'RegFile'. (HDL-193)
 
 Inferred memory devices in process
 	in routine RegFile line 36 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/RegFile.sv'.
+		'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/RegFile.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -131,7 +131,7 @@ Presto compilation completed successfully.
 Information: Building the design 'imm_Gen'. (HDL-193)
 
 Statistics for case statements in always block at line 28 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/imm_Gen.sv'
+	'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/imm_Gen.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -142,7 +142,7 @@ Information: Building the design 'mux3' instantiated from design 'Datapath' with
 	the parameters "32". (HDL-193)
 
 Statistics for case statements in always block at line 29 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/mux3.sv'
+	'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/mux3.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -153,12 +153,12 @@ Information: Building the design 'mux2' instantiated from design 'Datapath' with
 	the parameters "32". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'alu'. (HDL-193)
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:47: signed to unsigned assignment occurs. (VER-318)
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:57: signed to unsigned assignment occurs. (VER-318)
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv:79: signed to unsigned assignment occurs. (VER-318)
+Warning:  /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv:47: signed to unsigned assignment occurs. (VER-318)
+Warning:  /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv:57: signed to unsigned assignment occurs. (VER-318)
+Warning:  /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv:79: signed to unsigned assignment occurs. (VER-318)
 
 Statistics for case statements in always block at line 34 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/alu.sv'
+	'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/alu.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -167,46 +167,12 @@ Statistics for case statements in always block at line 34 in file
 Presto compilation completed successfully.
 Information: Building the design 'datamemory'. (HDL-193)
 
-Statistics for case statements in always block at line 65 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'
+Statistics for case statements in always block at line 64 in file
+	'/users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/design/datamemory.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
-|            69            |    auto/auto     |
+|            68            |    auto/auto     |
 ===============================================
-
-Statistics for case statements in always block at line 122 in file
-	'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'
-===============================================
-|           Line           |  full/ parallel  |
-===============================================
-|           126            |    auto/auto     |
-===============================================
-
-Inferred memory devices in process
-	in routine datamemory line 65 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
-===========================================================================
-|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
-===========================================================================
-|       re3_reg       | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
-|       re4_reg       | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
-|       rd_reg        | Latch |  32   |  Y  | N  | N  | N  | -  | -  | -  |
-|       re1_reg       | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
-|       re2_reg       | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
-===========================================================================
-
-Inferred memory devices in process
-	in routine datamemory line 122 in file
-		'/users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|       wd4_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
-|       wd1_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
-|       wd2_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
-|       wd3_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Warning:  /users/ugrad/2017/fall/sbkam/EECS_112L/OurLab3/Lab_Files/design/datamemory.sv:65: Netlist for always_comb block contains a latch. (ELAB-974)
 Presto compilation completed successfully.
 1

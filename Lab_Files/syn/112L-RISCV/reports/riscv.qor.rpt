@@ -7,21 +7,21 @@ Warning: Design 'riscv' contains 1 high-fanout nets. A fanout number of 1000 wil
 Report : qor
 Design : riscv
 Version: J-2014.09-SP4
-Date   : Sat Mar 16 00:10:29 2019
+Date   : Sat Mar 16 17:50:45 2019
 ****************************************
 
 
   Timing Path Group 'clk'
   -----------------------------------
-  Levels of Logic:               7.00
-  Critical Path Length:          0.59
-  Critical Path Slack:           4.40
-  Critical Path Clk Period:     10.00
+  Levels of Logic:               4.00
+  Critical Path Length:          3.63
+  Critical Path Slack:           0.36
+  Critical Path Clk Period:      4.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
-  Worst Hold Violation:          0.00
-  Total Hold Violation:          0.00
-  No. of Hold Violations:        0.00
+  Worst Hold Violation:         -0.01
+  Total Hold Violation:         -0.35
+  No. of Hold Violations:       68.00
   -----------------------------------
 
 
@@ -29,36 +29,36 @@ Date   : Sat Mar 16 00:10:29 2019
   -----------------------------------
   Hierarchical Cell Count:          3
   Hierarchical Port Count:        258
-  Leaf Cell Count:               6228
-  Buf/Inv Cell Count:             484
-  Buf Cell Count:                 188
-  Inv Cell Count:                 296
+  Leaf Cell Count:               6104
+  Buf/Inv Cell Count:             446
+  Buf Cell Count:                 164
+  Inv Cell Count:                 282
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:      4737
-  Sequential Cell Count:         1491
+  Combinational Cell Count:      4679
+  Sequential Cell Count:         1425
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:    11368.115305
-  Noncombinational Area:  9881.881417
-  Buf/Inv Area:            830.288447
-  Total Buffer Area:           380.71
-  Total Inverter Area:         449.58
+  Combinational Area:    11213.595750
+  Noncombinational Area:  9449.836633
+  Buf/Inv Area:            691.779970
+  Total Buffer Area:           321.49
+  Total Inverter Area:         370.29
   Macro/Black Box Area:  61909.027344
-  Net Area:               4958.730066
+  Net Area:               5137.020729
   -----------------------------------
-  Cell Area:             83159.024066
-  Design Area:           88117.754133
+  Cell Area:             82572.459727
+  Design Area:           87709.480455
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          6481
-  Nets With Violations:             3
-  Max Trans Violations:             1
+  Total Number of Nets:          6292
+  Nets With Violations:             2
+  Max Trans Violations:             0
   Max Cap Violations:               2
   -----------------------------------
 
@@ -67,19 +67,19 @@ Date   : Sat Mar 16 00:10:29 2019
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    4.14
-  Logic Optimization:                  4.23
-  Mapping Optimization:               18.93
+  Resource Sharing:                    4.28
+  Logic Optimization:                  4.07
+  Mapping Optimization:               19.35
   -----------------------------------------
-  Overall Compile Time:               63.55
-  Overall Compile Wall Clock Time:    97.32
+  Overall Compile Time:               63.79
+  Overall Compile Wall Clock Time:   106.00
 
   --------------------------------------------------------------------
 
   Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
 
 
-  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+  Design (Hold)  WNS: 0.01  TNS: 0.35  Number of Violating Paths: 68
 
   --------------------------------------------------------------------
 

@@ -1,4 +1,5 @@
-# Reading pref.tcl
+# vsim -debugDB -c tb_top_opt -do "sim.do" "+define+__SIM__" 
+# Start time: 17:18:47 on Mar 16,2019
 # //  Questa Sim-64
 # //  Version 10.4c linux_x86_64 Jul 19 2015
 # //
@@ -14,4 +15,32 @@
 # //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
 # //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
 # //
-# waveform.wlf opened as dataset "waveform"
+# Loading sv_std.std
+# Loading work.tb_top(fast)
+# Loading work.riscv(fast)
+# Loading work.Controller(fast)
+# Loading work.ALUController(fast)
+# Loading work.Load_Use_Detection(fast)
+# Loading work.Forward_Control(fast)
+# Loading work.Pipe_Reg_PKG(fast)
+# Loading work.Datapath_sv_unit(fast)
+# Loading work.Datapath(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.flopr(fast)
+# Loading work.instructionmemory(fast)
+# Loading work.RegFile(fast)
+# Loading work.imm_Gen(fast)
+# Loading work.mux3(fast)
+# Loading work.mux2(fast__1)
+# Loading work.alu(fast)
+# Loading work.datamemory(fast)
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# It appears vopt was not run with -debugdb option on this design.
+# Advanced Causality and Schematic debug features will not be available.
+# do sim.do
+# waveform.wlf
+# ** Note: $finish    : /users/ugrad/2017/fall/vkrishn2/EECS112L/Lab_Files/verif/tb_top.sv(29)
+#    Time: 2 us  Iteration: 0  Instance: /tb_top
+# End time: 17:18:48 on Mar 16,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
